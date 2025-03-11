@@ -1,29 +1,44 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, ... }:
-
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
-  boot.supportedFilesystems = ["ntfs"];
-
+  config,
+  pkgs,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ./kanata.nix
+    ./steam.nix
+    ./hyprland.nix
+    ./display_manager.nix
+    ./stylix.nix
+  ];
   # Bootloader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/nvme0n1";
-  boot.loader.grub.useOSProber = true;
+  boot = {
+    supportedFilesystems = ["ntfs"];
+    loader.grub = {
+      enable = true;
+      device = "/dev/nvme0n1";
+      useOSProber = true;
 
-  # Setup keyfile
-  boot.initrd.secrets = {
-    "/boot/crypto_keyfile.bin" = null;
+      enableCryptodisk = true;
+    };
+
+    # Setup key-file
+    initrd.secrets = {
+      "/boot/crypto_keyfile.bin" = null;
+    };
+
+    initrd.luks.devices."luks-fb733a5a-fb2e-4eb8-a9de-a1347b9a1215".keyFile = "/boot/crypto_keyfile.bin";
   };
 
-  boot.loader.grub.enableCryptodisk = true;
-
-  boot.initrd.luks.devices."luks-fb733a5a-fb2e-4eb8-a9de-a1347b9a1215".keyFile = "/boot/crypto_keyfile.bin";
+  fileSystems."/mnt/bigdisk" = {
+    device = "/dev/sda2";
+    fsType = "ntfs-3g";
+    options = ["rw" "uid=1000"];
+  };
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -40,47 +55,56 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
-  # Enable the X11 windowing system.
-  # You can disable this if you're only using the Wayland session.
-  services.xserver.enable = true;
+  services = {
+    xserver = {
+      # Enable the X11 windowing system.
+      # You can disable this if you're only using the Wayland session.
+      enable = true;
 
-  # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
+      # Configure keymap in X11
+      xkb = {
+        layout = "ch";
+        variant = "fr";
+        options = "caps:escape";
+      };
+      videoDrivers = ["nvidia"];
+    };
 
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "ch";
-    variant = "fr";
+    # Enable the KDE Plasma Desktop Environment.
+    # services.displayManager.sddm.enable = true;
+    # desktopManager.plasma6.enable = true;
+
+    # Enable CUPS to print documents.
+    printing.enable = true;
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+      # If you want to use JACK applications, uncomment this
+      #jack.enable = true;
+
+      # use the example session manager (no others are packaged yet so this is enabled by default,
+      # no need to redefine it in your config for now)
+      #media-session.enable = true;
+    };
   };
 
-  # enable nvidia drivers
-  hardware.graphics.enable = true;
-  services.xserver.videoDrivers = ["nvidia"];
-  hardware.nvidia.open = true;
+  hardware = {
+    # enable nvidia drivers
+    graphics.enable = true;
+    nvidia = {
+      open = true;
+      modesetting.enable = true;
+    };
+    pulseaudio.enable = false;
+  };
 
   # Configure console keymap
   console.keyMap = "fr_CH";
 
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
   # Enable sound with pipewire.
   security.rtkit.enable = true;
-  hardware.pulseaudio.enable = false;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
-  };
-
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -89,10 +113,10 @@
   users.users.lucab = {
     isNormalUser = true;
     description = "Luca Bracone";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
     packages = with pkgs; [
       kdePackages.kate
-    #  thunderbird
+      #  thunderbird
     ];
   };
 
@@ -102,9 +126,11 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  xdg.portal.enable = true;
+
   nix.settings = {
     auto-optimise-store = true;
-    experimental-features = [ "nix-command" "flakes" ];
+    experimental-features = ["nix-command" "flakes"];
     max-jobs = "auto";
   };
 
@@ -112,12 +138,16 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    neovim  
+    neovim
     wget
     pavucontrol
-    discord
+    vesktop
     mpv
     git
+    librewolf
+    calibre
+    keepassxc
+    qbittorrent-enhanced
   ];
 
   system.autoUpgrade.enable = true;
@@ -148,5 +178,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; # Did you read the comment?
-
 }
