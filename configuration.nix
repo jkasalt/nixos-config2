@@ -5,7 +5,8 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -14,10 +15,12 @@
     ./hyprland.nix
     ./display_manager.nix
     ./stylix.nix
+    ./ssh.nix
   ];
+  nixpkgs.config.allowUnfree = true;
   # Bootloader.
   boot = {
-    supportedFilesystems = ["ntfs"];
+    supportedFilesystems = [ "ntfs" ];
     loader.grub = {
       enable = true;
       device = "/dev/nvme0n1";
@@ -31,13 +34,17 @@
       "/boot/crypto_keyfile.bin" = null;
     };
 
-    initrd.luks.devices."luks-fb733a5a-fb2e-4eb8-a9de-a1347b9a1215".keyFile = "/boot/crypto_keyfile.bin";
+    initrd.luks.devices."luks-fb733a5a-fb2e-4eb8-a9de-a1347b9a1215".keyFile =
+      "/boot/crypto_keyfile.bin";
   };
 
   fileSystems."/mnt/bigdisk" = {
     device = "/dev/sda2";
     fsType = "ntfs-3g";
-    options = ["rw" "uid=1000"];
+    options = [
+      "rw"
+      "uid=1000"
+    ];
   };
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -67,7 +74,7 @@
         variant = "fr";
         options = "caps:escape";
       };
-      videoDrivers = ["nvidia"];
+      videoDrivers = [ "nvidia" ];
     };
 
     # Enable the KDE Plasma Desktop Environment.
@@ -97,7 +104,6 @@
       open = true;
       modesetting.enable = true;
     };
-    pulseaudio.enable = false;
   };
 
   # Configure console keymap
@@ -113,7 +119,10 @@
   users.users.lucab = {
     isNormalUser = true;
     description = "Luca Bracone";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     packages = with pkgs; [
       kdePackages.kate
       #  thunderbird
@@ -122,15 +131,16 @@
 
   # Install firefox.
   programs.firefox.enable = true;
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  programs.firefox.package = pkgs.librewolf;
 
   xdg.portal.enable = true;
 
   nix.settings = {
     auto-optimise-store = true;
-    experimental-features = ["nix-command" "flakes"];
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
     max-jobs = "auto";
   };
 

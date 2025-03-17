@@ -1,7 +1,9 @@
 _: {
   programs = {
     hyprlock.enable = true;
+    kitty.enable = true;
   };
+
   services = {
     hypridle.enable = true;
     dunst.enable = true;

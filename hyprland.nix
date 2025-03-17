@@ -10,7 +10,6 @@
   environment.systemPackages = with pkgs; [
     kitty
     wofi
-    dolphin
-    libsForQt5.qt5.qtwayland
+    kdePackages.dolphin
   ];
 }
