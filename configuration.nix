@@ -123,10 +123,7 @@
       "networkmanager"
       "wheel"
     ];
-    packages = with pkgs; [
-      kdePackages.kate
-      #  thunderbird
-    ];
+    shell = pkgs.nushell;
   };
 
   # Install firefox.
