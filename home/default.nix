@@ -23,5 +23,7 @@ _: {
     ./firefox.nix
     ./helix.nix
     ./nushell.nix
+    ./broot.nix
+    ./zoxide.nix
   ];
 }

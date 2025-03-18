@@ -63,24 +63,6 @@
   i18n.defaultLocale = "en_US.UTF-8";
 
   services = {
-    xserver = {
-      # Enable the X11 windowing system.
-      # You can disable this if you're only using the Wayland session.
-      enable = true;
-
-      # Configure keymap in X11
-      xkb = {
-        layout = "ch";
-        variant = "fr";
-        options = "caps:escape";
-      };
-      videoDrivers = [ "nvidia" ];
-    };
-
-    # Enable the KDE Plasma Desktop Environment.
-    # services.displayManager.sddm.enable = true;
-    # desktopManager.plasma6.enable = true;
-
     # Enable CUPS to print documents.
     printing.enable = true;
     pipewire = {
@@ -156,6 +138,9 @@
     keepassxc
     qbittorrent-enhanced
   ];
+
+  # for calibre
+  services.udisks2.enable = true;
 
   system.autoUpgrade.enable = true;
 
