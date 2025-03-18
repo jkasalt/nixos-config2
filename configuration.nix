@@ -16,6 +16,7 @@
     ./display_manager.nix
     ./stylix.nix
     ./ssh.nix
+    ./nvidia.nix
   ];
   nixpkgs.config.allowUnfree = true;
   # Bootloader.
@@ -76,15 +77,6 @@
       # use the example session manager (no others are packaged yet so this is enabled by default,
       # no need to redefine it in your config for now)
       #media-session.enable = true;
-    };
-  };
-
-  hardware = {
-    # enable nvidia drivers
-    graphics.enable = true;
-    nvidia = {
-      open = true;
-      modesetting.enable = true;
     };
   };
 
