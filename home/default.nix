@@ -11,7 +11,6 @@
   programs.home-manager.enable = true;
 
   programs = {
-    direnv.enable = true;
     kitty.enable = true;
     nh = {
       enable = true;
@@ -25,8 +24,7 @@
     ./firefox.nix
     ./helix.nix
     ./nushell.nix
-    ./broot.nix
-    ./zoxide.nix
+    ./shell-utils.nix
     ./waybar
   ];
 
