@@ -1,6 +1,6 @@
 _: {
   programs.waybar = {
-    enable = true;
+    enable = false;
     style = ./style.css;
     settings.mainBar = {
       modules-left = [ "hyprland/workspaces" ];

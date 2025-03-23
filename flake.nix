@@ -35,7 +35,9 @@
                 useGlobalPkgs = true;
                 useUserPackages = true;
                 backupFileExtension = "bak";
-                users.lucab = import ./home;
+                users.lucab = {
+                  imports = [ ./home ];
+                };
                 extraSpecialArgs = inputs;
               };
             }

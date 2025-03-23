@@ -10,12 +10,13 @@ _: {
   programs.home-manager.enable = true;
 
   programs = {
-    yazi.enable = true;
     direnv.enable = true;
+    kitty.enable = true;
     nh = {
       enable = true;
       clean.enable = true;
     };
+    yazi.enable = true;
   };
 
   imports = [

@@ -12,7 +12,7 @@
     ./hardware-configuration.nix
     ./kanata.nix
     ./steam.nix
-    ./hyprland.nix
+    # ./hyprland.nix
     # ./display_manager.nix
     ./gnome.nix
     ./stylix.nix
