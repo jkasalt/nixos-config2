@@ -13,7 +13,8 @@
     ./kanata.nix
     ./steam.nix
     ./hyprland.nix
-    ./display_manager.nix
+    # ./display_manager.nix
+    ./gnome.nix
     ./stylix.nix
     ./ssh.nix
     ./nvidia.nix
