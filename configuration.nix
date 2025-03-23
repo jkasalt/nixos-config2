@@ -122,7 +122,7 @@
     neovim
     wget
     pavucontrol
-    vesktop
+    discord-canary
     mpv
     git
     librewolf
