@@ -25,5 +25,6 @@ _: {
     ./nushell.nix
     ./broot.nix
     ./zoxide.nix
+    ./waybar
   ];
 }

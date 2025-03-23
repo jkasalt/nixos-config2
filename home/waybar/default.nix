@@ -1,4 +1,10 @@
 _: {
-  programs.waybar.enable = true;
-  programs.waybar.style = ./style.css;
+  programs.waybar = {
+    enable = true;
+    style = ./style.css;
+    settings.mainBar = {
+      modules-left = [ "hyprland/workspaces" ];
+      modules-center = [ "clock" ];
+    };
+  };
 }
