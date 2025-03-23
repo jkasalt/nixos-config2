@@ -17,7 +17,7 @@
       };
       sansSerif = {
         package = pkgs.nerd-fonts.monaspace;
-        name = "MonaspiceAr Nerd Font";
+        name = "MonaspiceNe Nerd Font";
       };
       monospace = {
         package = pkgs.nerd-fonts.monaspace;

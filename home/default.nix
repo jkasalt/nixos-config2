@@ -1,4 +1,5 @@
-_: {
+{ pkgs, ... }:
+{
   home = {
     username = "lucab";
     homeDirectory = "/home/lucab";
@@ -28,4 +29,13 @@ _: {
     ./zoxide.nix
     ./waybar
   ];
+
+  dconf = {
+    enable = true;
+    settings = {
+      "org/gnome/shell" = {
+        enabled-extensions = [ pkgs.gnomeExtensions.appindicator.extensionUuid ];
+      };
+    };
+  };
 }

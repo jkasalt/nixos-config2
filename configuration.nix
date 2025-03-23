@@ -130,6 +130,7 @@
     calibre
     keepassxc
     qbittorrent-enhanced
+    gnomeExtensions.appindicator
   ];
 
   # for calibre
