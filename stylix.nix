@@ -7,7 +7,7 @@
       size = 24;
       name = "Banana";
     };
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-frappe.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/seti.yaml";
     image = ./wallpapers/nix-wallpaper-nineish-dark-gray.png;
 
     fonts = {

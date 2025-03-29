@@ -107,13 +107,20 @@
 
   xdg.portal.enable = true;
 
-  nix.settings = {
-    auto-optimise-store = true;
-    experimental-features = [
-      "nix-command"
-      "flakes"
-    ];
-    max-jobs = "auto";
+  nix = {
+    settings = {
+      auto-optimise-store = true;
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
+      max-jobs = "auto";
+    };
+    gc = {
+      automatic = false; # nh already does auto-cleaning
+      dates = "weekly";
+      options = "--delete-older-than 30d";
+    };
   };
 
   # List packages installed in system profile. To search, run:

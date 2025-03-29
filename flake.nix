@@ -25,7 +25,7 @@
         ...
       }:
       {
-        systems = [ "x86_64-linux" ];
+        systems = [ ];
         flake.nixosConfigurations.nixos = inputs.nixpkgs.lib.nixosSystem {
           modules = [
             ./configuration.nix
@@ -36,7 +36,10 @@
                 useUserPackages = true;
                 backupFileExtension = "bak";
                 users.lucab = {
-                  imports = [ ./home ];
+                  imports = [
+                    inputs.nixvim.homeManagerModules.nixvim
+                    ./home
+                  ];
                 };
                 extraSpecialArgs = inputs;
               };

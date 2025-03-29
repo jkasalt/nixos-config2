@@ -6,6 +6,10 @@
     stateVersion = "24.11";
   };
 
+  home.packages = with pkgs; [
+    keepassxc
+  ];
+
   gtk.enable = true;
 
   programs.home-manager.enable = true;
@@ -15,6 +19,7 @@
     nh = {
       enable = true;
       clean.enable = true;
+      clean.extraArgs = "--keep 5 --keep-since 3d";
     };
     yazi.enable = true;
   };
@@ -26,6 +31,7 @@
     ./nushell.nix
     ./shell-utils.nix
     ./waybar
+    ./neovim
   ];
 
   dconf = {
