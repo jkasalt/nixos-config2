@@ -1,5 +1,6 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
+  imports = [ inputs.stylix.nixosModules.stylix ];
   stylix = {
     enable = true;
     cursor = {
@@ -25,13 +26,4 @@
       };
     };
   };
-
-  home-manager.sharedModules = [
-    {
-      stylix.targets = {
-        # helix.enable = false;
-        waybar.enable = false;
-      };
-    }
-  ];
 }

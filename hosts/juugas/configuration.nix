@@ -2,24 +2,18 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 {
-  config,
+  flake,
   pkgs,
   ...
 }:
 {
   imports = [
-    # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ./kanata.nix
-    ./steam.nix
-    # ./hyprland.nix
-    # ./display_manager.nix
-    ./gnome.nix
-    ./stylix.nix
-    ./ssh.nix
-    ./nvidia.nix
+    flake.nixosModules.shared
   ];
+
   nixpkgs.config.allowUnfree = true;
+
   # Bootloader.
   boot = {
     supportedFilesystems = [ "ntfs" ];
@@ -48,7 +42,7 @@
       "uid=1000"
     ];
   };
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "juugas"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -110,6 +104,7 @@
   nix = {
     settings = {
       auto-optimise-store = true;
+      allow-import-from-derivation = true;
       experimental-features = [
         "nix-command"
         "flakes"

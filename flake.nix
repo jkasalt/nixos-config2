@@ -3,12 +3,25 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    flake-parts.url = "github:hercules-ci/flake-parts";
+
+    blueprint = {
+      url = "github:numtide/blueprint";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    stylix.url = "github:danth/stylix";
+
+    stylix = {
+      url = "github:danth/stylix";
+      inputs = {
+        home-manager.follows = "home-manager";
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
+
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -16,37 +29,9 @@
   };
 
   outputs =
-    inputs@{ flake-parts, ... }:
-    flake-parts.lib.mkFlake { inherit inputs; } (
-      top@{
-        config,
-        withSystem,
-        moduleWithSystem,
-        ...
-      }:
-      {
-        systems = [ ];
-        flake.nixosConfigurations.nixos = inputs.nixpkgs.lib.nixosSystem {
-          modules = [
-            ./configuration.nix
-            inputs.home-manager.nixosModules.home-manager
-            {
-              home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                backupFileExtension = "bak";
-                users.lucab = {
-                  imports = [
-                    inputs.nixvim.homeManagerModules.nixvim
-                    ./home
-                  ];
-                };
-                extraSpecialArgs = inputs;
-              };
-            }
-            inputs.stylix.nixosModules.stylix
-          ];
-        };
-      }
-    );
+    inputs:
+    inputs.blueprint {
+      inherit inputs;
+      systems = [ "x86_64-linux" ];
+    };
 }

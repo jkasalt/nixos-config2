@@ -1,11 +1,5 @@
 { pkgs, ... }:
 {
-  home = {
-    username = "lucab";
-    homeDirectory = "/home/lucab";
-    stateVersion = "24.11";
-  };
-
   home.packages = with pkgs; [
     keepassxc
   ];
@@ -29,7 +23,7 @@
     ./firefox.nix
     ./helix.nix
     ./nushell.nix
-    ./shell-utils.nix
+    # ./shell-utils.nix
     ./waybar
     ./neovim
   ];
