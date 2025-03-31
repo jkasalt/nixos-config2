@@ -8,7 +8,7 @@
       size = 24;
       name = "Banana";
     };
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/seti.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/chalk.yaml";
     image = ./wallpapers/nix-wallpaper-nineish-dark-gray.png;
 
     fonts = {
@@ -26,4 +26,12 @@
       };
     };
   };
+
+  home-manager.sharedModules = [
+    {
+      stylix.targets = {
+        helix.enable = false;
+      };
+    }
+  ];
 }

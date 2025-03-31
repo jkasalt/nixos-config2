@@ -19,13 +19,13 @@
   };
 
   imports = [
-    ./hyprland.nix
     ./firefox.nix
     ./helix.nix
     ./nushell.nix
-    # ./shell-utils.nix
+    ./shell-utils.nix
     ./waybar
     ./neovim
+    ./gnome.nix
   ];
 
   dconf = {

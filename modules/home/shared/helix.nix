@@ -8,7 +8,7 @@
   programs.helix = {
     enable = true;
     settings = {
-      # theme = "everforest_dark";
+      theme = "dark_plus";
       editor = {
         cursorline = true;
         bufferline = "multiple";

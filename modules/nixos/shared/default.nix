@@ -1,7 +1,7 @@
 _: {
   imports = [
     ./ssh.nix
-    # ./stylix.nix
+    ./stylix.nix
     ./gnome.nix
     ./steam.nix
     ./nvidia.nix
