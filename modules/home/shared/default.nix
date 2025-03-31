@@ -25,7 +25,6 @@
     ./shell-utils.nix
     ./waybar
     ./neovim
-    ./gnome.nix
   ];
 
   dconf = {

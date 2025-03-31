@@ -5,8 +5,6 @@ _: {
     ./gnome.nix
     ./steam.nix
     ./nvidia.nix
-    ./display_manager.nix
-    ./hyprland.nix
     ./kanata.nix
   ];
 }
