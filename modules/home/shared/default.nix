@@ -2,6 +2,9 @@
 {
   home.packages = with pkgs; [
     keepassxc
+    wine64
+    path-of-building
+    brave
   ];
 
   gtk.enable = true;
@@ -25,6 +28,7 @@
     ./shell-utils.nix
     ./waybar
     ./neovim
+    ./tmux.nix
   ];
 
   dconf = {
