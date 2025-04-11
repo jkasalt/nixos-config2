@@ -4,10 +4,12 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
-    blueprint = {
-      url = "github:numtide/blueprint";
+    ez-configs = {
+      url = "github:ehllie/ez-configs";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    flake-parts.url = "github:hercules-ci/flake-parts";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -35,8 +37,9 @@
 
   outputs =
     inputs:
-    inputs.blueprint {
-      inherit inputs;
+    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" ];
+      imports = [ inputs.ez-configs.flakeModule ];
+      ezConfigs.root = ./.;
     };
 }
