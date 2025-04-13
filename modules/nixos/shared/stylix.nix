@@ -13,16 +13,16 @@
 
     fonts = {
       serif = {
-        package = pkgs.nerd-fonts.monaspace;
-        name = "MonaspiceXe Nerd Font";
+        package = pkgs.dejavu_fonts;
+        name = "DejaVu Serif";
       };
       sansSerif = {
-        package = pkgs.nerd-fonts.monaspace;
-        name = "MonaspiceNe Nerd Font";
+        name = "DejaVu Sans";
+        package = pkgs.dejavu_fonts;
       };
       monospace = {
-        package = pkgs.nerd-fonts.monaspace;
-        name = "MonaspiceAr Nerd Font Mono";
+        package = pkgs.nerd-fonts.blex-mono;
+        name = "BlexMono Nerd Font Mono";
       };
     };
   };

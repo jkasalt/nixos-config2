@@ -141,7 +141,7 @@
   system.autoUpgrade.enable = true;
 
   fonts.packages = with pkgs; [
-    nerd-fonts.monaspace
+    nerd-fonts.blex-mono
   ];
 
   hardware.bluetooth.enable = true;
