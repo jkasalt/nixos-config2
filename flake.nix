@@ -22,8 +22,8 @@
       };
     };
 
-    nixvim = {
-      url = "github:nix-community/nixvim";
+    nvim-flake = {
+      url = "github:jkasalt/nvim-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

@@ -27,7 +27,6 @@
     ./nushell.nix
     ./shell-utils.nix
     ./waybar
-    ./neovim
     ./tmux.nix
   ];
 
