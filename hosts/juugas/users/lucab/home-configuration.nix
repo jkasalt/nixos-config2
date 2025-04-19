@@ -1,6 +1,16 @@
 { pkgs, flake, ... }:
 {
-  imports = builtins.attrValues {inherit (flake.homeModules) firefox git helix nushell shell-utils waybar tmux;};
+  imports = builtins.attrValues {
+    inherit (flake.homeModules)
+      firefox
+      git
+      helix
+      nushell
+      shell-utils
+      waybar
+      tmux
+      ;
+  };
 
   home = {
     username = "lucab";
