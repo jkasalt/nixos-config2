@@ -9,6 +9,7 @@
       shell-utils
       waybar
       tmux
+      zellij
       ;
   };
 
