@@ -1,4 +1,5 @@
-_: {
+{ pkgs, ... }:
+{
   imports = [
     ./ssh.nix
     ./stylix.nix

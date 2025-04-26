@@ -10,6 +10,7 @@
       waybar
       tmux
       zellij
+      misc
       ;
   };
 

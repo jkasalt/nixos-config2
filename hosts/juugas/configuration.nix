@@ -128,7 +128,6 @@
     wget
     pavucontrol
     discord-canary
-    mpv
     git
     librewolf
     calibre
