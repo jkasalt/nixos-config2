@@ -8,4 +8,9 @@
     ./nvidia.nix
     ./kanata.nix
   ];
+
+  environment.systemPackages = with pkgs; [
+    cargo
+    rustc
+  ];
 }
