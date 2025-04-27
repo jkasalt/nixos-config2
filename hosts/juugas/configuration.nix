@@ -96,16 +96,11 @@
     shell = pkgs.nushell;
   };
 
-  # Install firefox.
-  programs.firefox.enable = true;
-  programs.firefox.package = pkgs.librewolf;
-
   xdg.portal.enable = true;
 
   nix = {
     settings = {
       auto-optimise-store = true;
-      allow-import-from-derivation = true;
       experimental-features = [
         "nix-command"
         "flakes"

@@ -8,7 +8,7 @@
       size = 24;
       name = "Banana";
     };
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/chalk.yaml";
+    base16Scheme = "${inputs.tt-schemes}/base16/chalk.yaml";
     image = ./wallpapers/nix-wallpaper-nineish-dark-gray.png;
 
     fonts = {
@@ -25,12 +25,14 @@
         name = "BlexMono Nerd Font Mono";
       };
     };
+
   };
 
   home-manager.sharedModules = [
     {
       stylix.targets = {
         helix.enable = false;
+        librewolf.profileNames = [ "default" ];
       };
     }
   ];

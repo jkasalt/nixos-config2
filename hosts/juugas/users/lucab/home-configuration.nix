@@ -2,7 +2,7 @@
 {
   imports = builtins.attrValues {
     inherit (flake.homeModules)
-      firefox
+      librewolf
       git
       helix
       nushell
