@@ -11,6 +11,7 @@
       tmux
       zellij
       misc
+      rio
       ;
   };
 

@@ -32,6 +32,8 @@
       url = "github:tinted-theming/schemes";
       flake = false;
     };
+
+    rio.url = "github:raphamorim/rio/main";
   };
 
   outputs =
