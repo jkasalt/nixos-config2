@@ -136,10 +136,6 @@
 
   system.autoUpgrade.enable = true;
 
-  fonts.packages = with pkgs; [
-    nerd-fonts.blex-mono
-  ];
-
   hardware.bluetooth.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
