@@ -41,7 +41,7 @@ _: {
           "/dev/input/by-path/pci-0000:0a:00.3-usbv2-0:3:1.1-event-kbd"
         ];
         extraDefCfg = "process-unmapped-keys yes";
-        config = # sexp
+        config = # scheme
           ''
             (defsrc
              caps tab d h j k l
