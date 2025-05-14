@@ -12,6 +12,7 @@
       zellij
       misc
       rio
+      gh
       ;
   };
 
