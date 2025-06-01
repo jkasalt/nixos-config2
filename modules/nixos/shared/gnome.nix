@@ -1,9 +1,11 @@
-{ pkgs, ... }:
-{
-  services.xserver = {
-    enable = true;
+_: {
+  services = {
+    xserver = {
+      enable = true;
 
-    displayManager.gdm.enable = true;
+      displayManager.gdm.enable = true;
+    };
+
     desktopManager.gnome.enable = true;
   };
 }
