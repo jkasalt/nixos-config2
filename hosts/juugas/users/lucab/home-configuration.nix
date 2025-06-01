@@ -2,7 +2,7 @@
 {
   imports = builtins.attrValues {
     inherit (flake.homeModules)
-      librewolf
+      browser
       git
       helix
       nushell
