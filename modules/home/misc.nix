@@ -1,4 +1,7 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  ...
+}:
 {
   home.packages = with pkgs; [
     htop
@@ -11,6 +14,8 @@
         notebook.dir = "~/notebook";
       };
     };
+
+    lutris.enable = true;
 
     mpv = {
       enable = true;

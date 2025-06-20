@@ -21,10 +21,10 @@
         package = pkgs.dejavu_fonts;
       };
       monospace = {
-        package = pkgs.nerd-fonts.blex-mono;
-        name = "BlexMono Nerd Font Mono";
-        # package = pkgs.nerd-fonts.fira-code;
-        # name = "FiraCode Nerd Font Mono";
+        # package = pkgs.nerd-fonts.blex-mono;
+        # name = "BlexMono Nerd Font Mono";
+        package = pkgs.nerd-fonts.fira-code;
+        name = "FiraCode Nerd Font Mono";
       };
     };
 
@@ -34,7 +34,7 @@
     {
       stylix.targets = {
         helix.enable = false;
-        librewolf.profileNames = [ "default" ];
+        floorp.profileNames = [ "default" ];
       };
     }
   ];

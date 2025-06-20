@@ -24,7 +24,6 @@
   home.packages = with pkgs; [
     keepassxc
     wine64
-    path-of-building
     brave
   ];
 
