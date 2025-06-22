@@ -131,6 +131,8 @@
     gnomeExtensions.appindicator
   ];
 
+  environment.variables.EDITOR = "nvim";
+
   # for calibre
   services.udisks2.enable = true;
 

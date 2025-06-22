@@ -1,5 +1,4 @@
-{ pkgs, lib, ... }:
-{
+_: {
   programs.rio = {
     enable = true;
     settings = {
