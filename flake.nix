@@ -33,16 +33,6 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    tt-schemes = {
-      url = "github:tinted-theming/schemes";
-      flake = false;
-    };
-
-    rio = {
-      url = "github:raphamorim/rio/main";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =
