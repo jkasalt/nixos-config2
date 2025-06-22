@@ -3,10 +3,11 @@
   imports = [
     ./ssh.nix
     ./stylix.nix
-    ./gnome.nix
+    # ./gnome.nix
     ./steam.nix
     ./nvidia.nix
     ./kanata.nix
+    ./kde.nix
   ];
 
   environment.systemPackages = with pkgs; [

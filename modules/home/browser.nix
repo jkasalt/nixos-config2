@@ -22,5 +22,5 @@
       };
     };
   };
-  programs.chromium.enable = true;
+  programs.brave.enable = true;
 }
