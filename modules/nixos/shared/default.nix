@@ -8,6 +8,7 @@
     ./nvidia.nix
     ./kanata.nix
     ./kde.nix
+    ./appimages.nix
   ];
 
   environment.systemPackages = with pkgs; [
