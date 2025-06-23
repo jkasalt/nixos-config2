@@ -400,11 +400,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1750623644,
-        "narHash": "sha256-QqA9m0vLihud8//4urMkWTme49FqnR9v3gSWFv5K91c=",
+        "lastModified": 1750706669,
+        "narHash": "sha256-bGTMu+xOYA/olbXUBzTVL1Ju+wz/RkGIkbrf7diYeFY=",
         "owner": "jkasalt",
         "repo": "nvim-flake",
-        "rev": "db609d89ed0718085ae1f4d31d8d73d5c9e7dedd",
+        "rev": "633bccff69b21ed812ba3a1e0bf6989b55720f68",
         "type": "github"
       },
       "original": {
