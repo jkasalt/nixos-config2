@@ -9,6 +9,7 @@
     fd
     ripgrep
   ];
+  home.sessionPath = [ "$HOME/.cargo/bin" ];
   programs = {
     zk = {
       enable = true;
