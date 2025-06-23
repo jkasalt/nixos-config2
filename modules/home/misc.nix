@@ -6,6 +6,8 @@
   home.packages = with pkgs; [
     htop
     anki-bin
+    fd
+    ripgrep
   ];
   programs = {
     zk = {
