@@ -1,4 +1,7 @@
-{ perSystem, ... }:
+{ inputs, ... }:
+let
+  firefox-addons = inputs.firefox-addons.outputs.packages.x86_64-linux;
+in
 {
   programs.floorp = {
     enable = true;
@@ -9,7 +12,7 @@
           "extensions.autoDisableScopes" = 0;
         };
         extensions = {
-          packages = with perSystem.firefox-addons; [
+          packages = with firefox-addons; [
             ublock-origin
             adnauseam
             libredirect
@@ -22,5 +25,7 @@
       };
     };
   };
+
+  stylix.targets.floorp.profileNames = [ "default" ];
   programs.brave.enable = true;
 }

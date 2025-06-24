@@ -8,7 +8,6 @@
   programs.helix = {
     enable = true;
     settings = {
-      theme = "dark_plus";
       editor = {
         cursorline = true;
         bufferline = "multiple";

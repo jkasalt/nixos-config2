@@ -1,52 +1,37 @@
-{ pkgs, flake, ... }:
+{ pkgs, ... }:
 {
-  imports = builtins.attrValues {
-    inherit (flake.homeModules)
-      browser
-      git
-      helix
-      nushell
-      shell-utils
-      waybar
-      tmux
-      zellij
-      misc
-      rio
-      gh
-      ;
-  };
+  imports = [
+    ../../../../modules/home/browser.nix
+    ../../../../modules/home/git.nix
+    ../../../../modules/home/helix.nix
+    ../../../../modules/home/nushell.nix
+    ../../../../modules/home/shell-utils.nix
+    ../../../../modules/home/tmux.nix
+    ../../../../modules/home/zellij.nix
+    ../../../../modules/home/misc.nix
+    ../../../../modules/home/gh.nix
+  ];
 
   home = {
     username = "lucab";
     homeDirectory = "/home/lucab";
     stateVersion = "24.11";
   };
+
   home.packages = with pkgs; [
     keepassxc
     wine64
-    brave
   ];
-
-  gtk.enable = true;
 
   programs.home-manager.enable = true;
 
   programs = {
-    kitty.enable = true;
+    lazygit.enable = true;
     nh = {
       enable = true;
       clean.enable = true;
       clean.extraArgs = "--keep 5 --keep-since 3d";
     };
     yazi.enable = true;
-  };
-
-  dconf = {
-    enable = true;
-    settings = {
-      "org/gnome/shell" = {
-        enabled-extensions = [ pkgs.gnomeExtensions.appindicator.extensionUuid ];
-      };
-    };
   };
 }

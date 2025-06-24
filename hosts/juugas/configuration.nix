@@ -2,7 +2,6 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 {
-  flake,
   inputs,
   pkgs,
   ...
@@ -10,7 +9,7 @@
 {
   imports = [
     ./hardware-configuration.nix
-    flake.nixosModules.shared
+    ../../modules/nixos/shared
   ];
 
   nixpkgs.config.allowUnfree = true;

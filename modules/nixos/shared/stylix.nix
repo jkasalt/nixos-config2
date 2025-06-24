@@ -27,14 +27,8 @@ let
   '';
 in
 {
-  imports = [ inputs.stylix.nixosModules.stylix ];
   stylix = {
     enable = true;
-    cursor = {
-      package = pkgs.banana-cursor;
-      size = 24;
-      name = "Banana";
-    };
     base16Scheme = "${sarnaiTheme}";
     image = ./wallpapers/nix-wallpaper-nineish-dark-gray.png;
 
@@ -54,15 +48,5 @@ in
         name = "FiraCode Nerd Font Mono";
       };
     };
-
   };
-
-  home-manager.sharedModules = [
-    {
-      stylix.targets = {
-        helix.enable = false;
-        floorp.profileNames = [ "default" ];
-      };
-    }
-  ];
 }

@@ -10,7 +10,12 @@
     ripgrep
   ];
   home.sessionPath = [ "$HOME/.cargo/bin" ];
+
+  gtk.gtk2.force = true;
+
   programs = {
+    kitty.enable = true;
+
     zk = {
       enable = true;
       settings = {
