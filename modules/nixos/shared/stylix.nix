@@ -30,7 +30,7 @@ in
   stylix = {
     enable = true;
     base16Scheme = "${sarnaiTheme}";
-    image = ./wallpapers/nix-wallpaper-nineish-dark-gray.png;
+    image = ./wallpapers/luminescent.jpg;
 
     fonts = {
       serif = {
