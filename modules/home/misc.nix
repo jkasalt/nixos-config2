@@ -8,6 +8,7 @@
     anki-bin
     fd
     ripgrep
+    zathura
   ];
   home.sessionPath = [ "$HOME/.cargo/bin" ];
 

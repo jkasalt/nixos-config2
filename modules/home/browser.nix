@@ -1,6 +1,11 @@
-{ inputs, ... }:
+{
+  inputs,
+  pkgs,
+  ...
+}:
 let
-  firefox-addons = inputs.firefox-addons.outputs.packages.x86_64-linux;
+  inherit (pkgs) system;
+  firefox-addons = inputs.firefox-addons.outputs.packages.${system};
 in
 {
   programs.floorp = {
