@@ -144,7 +144,7 @@
   # for calibre
   services.udisks2.enable = true;
 
-  system.autoUpgrade.enable = true;
+  system.autoUpgrade.enable = false;
 
   hardware.bluetooth.enable = true;
 
