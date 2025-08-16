@@ -4,7 +4,7 @@
     ../../../../modules/home/browser.nix
     ../../../../modules/home/git.nix
     ../../../../modules/home/helix.nix
-    ../../../../modules/home/nushell.nix
+    ../../../../modules/home/shell.nix
     ../../../../modules/home/shell-utils.nix
     ../../../../modules/home/tmux.nix
     ../../../../modules/home/zellij.nix
