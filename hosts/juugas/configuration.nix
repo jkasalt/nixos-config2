@@ -92,8 +92,17 @@
       "networkmanager"
       "wheel"
     ];
-    shell = pkgs.nushell;
+    shell = pkgs.fish;
   };
+
+  swapDevices = [
+    {
+      device = "/var/lib/swapfile";
+      size = 16 * 1024;
+    }
+  ];
+
+  programs.fish.enable = true;
 
   xdg.portal.enable = true;
 
