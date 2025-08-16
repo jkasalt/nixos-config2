@@ -9,6 +9,8 @@
     fd
     ripgrep
     zathura
+    inputs.zen-browser.packages."${system}".beta
+    czkawka-full
   ];
   home.sessionPath = [ "$HOME/.cargo/bin" ];
 
