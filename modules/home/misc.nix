@@ -9,7 +9,6 @@
     anki-bin
     fd
     ripgrep
-    zathura
     inputs.zen-browser.packages."${system}".beta
     czkawka-full
   ];
@@ -23,6 +22,8 @@
     kitty.settings = {
       font_size = 13.0;
     };
+
+    zathura.enable = true;
 
     zk = {
       enable = true;
