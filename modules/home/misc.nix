@@ -1,5 +1,6 @@
 {
   pkgs,
+  inputs,
   ...
 }:
 {
@@ -17,7 +18,11 @@
   gtk.gtk2.force = true;
 
   programs = {
+    ghostty.enable = true;
     kitty.enable = true;
+    kitty.settings = {
+      font_size = 13.0;
+    };
 
     zk = {
       enable = true;

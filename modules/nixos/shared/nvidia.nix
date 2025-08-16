@@ -3,7 +3,7 @@ _: {
     # enable nvidia drivers
     graphics.enable = true;
     nvidia = {
-      open = false;
+      open = true;
       modesetting.enable = true;
       powerManagement.enable = true;
     };
