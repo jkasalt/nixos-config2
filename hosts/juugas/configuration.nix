@@ -102,6 +102,8 @@
     }
   ];
 
+  zramSwap.enable = true;
+
   programs.fish.enable = true;
 
   xdg.portal.enable = true;
