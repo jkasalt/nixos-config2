@@ -10,7 +10,7 @@
     ../../../../modules/home/zellij.nix
     ../../../../modules/home/misc.nix
     ../../../../modules/home/gh.nix
-    ../../../../modules/home/dropbox.nix
+    # ../../../../modules/home/dropbox.nix
   ];
 
   home = {
