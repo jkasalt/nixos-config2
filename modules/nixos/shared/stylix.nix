@@ -1,4 +1,9 @@
-{ pkgs, inputs, ... }:
+{
+  pkgs,
+  inputs,
+  lib,
+  ...
+}:
 let
   sarnaiTheme = pkgs.writeText "sarnai.yaml" ''
     system: "base16"
@@ -42,9 +47,11 @@ in
         package = pkgs.dejavu_fonts;
       };
       monospace = {
-        package = pkgs.nerd-fonts.iosevka;
-        name = "IosevkaMono Nerd Font Mono";
+        package = pkgs.nerd-fonts.geist-mono;
+        name = "GeistMono Nerd Font Mono";
       };
     };
+
+    targets.qt.platform = lib.mkForce "qt5ct";
   };
 }
