@@ -11,6 +11,11 @@
     ripgrep
     inputs.zen-browser.packages."${system}".beta
     czkawka-full
+    (gnucash.overrideAttrs (old: {
+      postInstall = old.postInstall or "" + ''
+        wrapProgram $out/bin/gnucash --set WEBKIT_DISABLE_COMPOSITING_MODE 1
+      '';
+    }))
   ];
   home.sessionPath = [ "$HOME/.cargo/bin" ];
 
