@@ -9,7 +9,6 @@
     anki-bin
     fd
     ripgrep
-    inputs.zen-browser.packages."${system}".beta
     czkawka-full
     (gnucash.overrideAttrs (old: {
       postInstall = old.postInstall or "" + ''
