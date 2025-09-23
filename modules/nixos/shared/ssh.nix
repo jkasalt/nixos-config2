@@ -1,3 +1,4 @@
 _: {
-  programs.ssh.startAgent = true;
+  # disabled since included in gnome config
+  programs.ssh.startAgent = false;
 }

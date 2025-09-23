@@ -116,12 +116,17 @@
         "flakes"
       ];
       max-jobs = "auto";
+
+      # needed for obelisk
+      substituters = [ "https://nixcache.reflex-frp.org" ];
+      trusted-public-keys = [ "ryantrinkle.com-1:JJiAKaRv9mWgpVAz8dwewnZe0AzzEAzPkagE9SP5NWI=" ];
     };
     gc = {
       automatic = false; # nh already does auto-cleaning
       dates = "weekly";
       options = "--delete-older-than 30d";
     };
+
   };
 
   # List packages installed in system profile. To search, run:
