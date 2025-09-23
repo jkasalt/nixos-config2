@@ -15,6 +15,7 @@
         wrapProgram $out/bin/gnucash --set WEBKIT_DISABLE_COMPOSITING_MODE 1
       '';
     }))
+    ihp-new
   ];
   home.sessionPath = [ "$HOME/.cargo/bin" ];
 
