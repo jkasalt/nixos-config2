@@ -1,4 +1,6 @@
-_: {
+{ pkgs, ... }:
+{
+
   services = {
     xserver = {
       enable = true;
@@ -7,5 +9,7 @@ _: {
     displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
   };
+
+  environment.systemPackages = [ pkgs.wl-clipboard ];
   programs.xwayland.enable = true;
 }
