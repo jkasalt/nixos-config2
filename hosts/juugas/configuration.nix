@@ -144,6 +144,7 @@
     keepassxc
     qbittorrent-enhanced
     gnomeExtensions.appindicator
+    gnumake
   ];
 
   environment.variables.EDITOR = "nvim";
