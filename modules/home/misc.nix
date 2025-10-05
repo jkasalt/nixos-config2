@@ -16,6 +16,7 @@
       '';
     }))
     ihp-new
+    ani-cli
   ];
   home.sessionPath = [ "$HOME/.cargo/bin" ];
 
