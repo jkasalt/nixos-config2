@@ -17,6 +17,11 @@
     }))
     ihp-new
     ani-cli
+    comma
+    yt-dlp
+    ghc
+    cabal-install
+    stack
   ];
   home.sessionPath = [ "$HOME/.cargo/bin" ];
 
@@ -29,7 +34,12 @@
       font_size = 13.0;
     };
 
-    zathura.enable = true;
+    zathura = {
+        enable = true;
+        options = {
+            selection-clipboard = "clipboard";
+        };
+    };
 
     zk = {
       enable = true;
