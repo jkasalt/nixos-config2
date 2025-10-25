@@ -3,6 +3,9 @@
   inputs,
   ...
 }:
+let gnucash-wrapped =
+    pkgs.runCommand "gnucash" {buildInputs = [pkgs.makeWrapper];} ''makeWrapper ${pkgs.gnucash}/bin/gnucash $out/bin/gnucash --set WEBKIT_DISABLE_COMPOSITING_MODE 1'';
+    in
 {
   home.packages = with pkgs; [
     htop
@@ -10,11 +13,15 @@
     fd
     ripgrep
     czkawka-full
-    (gnucash.overrideAttrs (old: {
-      postInstall = old.postInstall or "" + ''
-        wrapProgram $out/bin/gnucash --set WEBKIT_DISABLE_COMPOSITING_MODE 1
-      '';
-    }))
+    # (gnucash.overrideAttrs (old: {
+    #   postInstall = old.postInstall or "" + ''
+    #     wrapProgram $out/bin/gnucash --set WEBKIT_DISABLE_COMPOSITING_MODE 1
+    #   '';
+    # }))
+    (pkgs.symlinkJoin {
+      name = "gnucash";
+      paths = [gnucash-wrapped pkgs.gnucash];
+    })
     ihp-new
     ani-cli
     comma
