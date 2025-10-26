@@ -16,7 +16,6 @@
 
     nvim-flake = {
       url = "github:jkasalt/nvim-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     treefmt-nix = {
