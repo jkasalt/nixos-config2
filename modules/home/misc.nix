@@ -29,12 +29,14 @@ let gnucash-wrapped =
     ghc
     cabal-install
     stack
+    pkg-config
   ];
   home.sessionPath = [ "$HOME/.cargo/bin" ];
 
   gtk.gtk2.force = true;
 
   programs = {
+    emacs.enable = true;
     ghostty.enable = true;
     kitty.enable = true;
     kitty.settings = {

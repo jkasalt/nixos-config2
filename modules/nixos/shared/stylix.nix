@@ -52,6 +52,7 @@ in
       };
     };
 
-    targets.qt.platform = lib.mkForce "qt5ct";
+    targets.qt.platform = lib.mkForce "qtct";
+    # targets.emacs.enable = false;
   };
 }

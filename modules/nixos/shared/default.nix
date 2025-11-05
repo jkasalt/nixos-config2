@@ -6,7 +6,7 @@
     ./gnome.nix
     ./steam.nix
     ./nvidia.nix
-    ./kanata.nix
+    # ./kanata.nix
     # ./kde.nix
     ./appimages.nix
   ];

@@ -145,6 +145,7 @@
     qbittorrent-enhanced
     gnomeExtensions.appindicator
     gnumake
+    openssl
   ];
 
   environment.variables.EDITOR = "nvim";
