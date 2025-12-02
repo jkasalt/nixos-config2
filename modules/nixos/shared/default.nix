@@ -9,6 +9,7 @@
     # ./kanata.nix
     # ./kde.nix
     ./appimages.nix
+    ./scheduled-shutdown.nix
   ];
 
   environment.systemPackages = with pkgs; [
