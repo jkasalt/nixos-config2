@@ -13,7 +13,7 @@
         name = "Luca Bracone";
       };
       # Thank you: https://github.com/fufexan/dotfiles/blob/main/home/terminal/programs/git.nix
-      aliases =
+      alias =
         let
           log = "log --show-notes='*' --abbrev-commit --pretty=format:'%Cred%h %Cgreen(%aD)%Creset -%C(bold red)%d%Creset %s %C(bold blue)<%an>% %Creset' --graph";
         in
