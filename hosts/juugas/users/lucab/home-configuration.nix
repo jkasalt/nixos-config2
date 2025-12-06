@@ -10,6 +10,7 @@
     ../../../../modules/home/zellij.nix
     ../../../../modules/home/misc.nix
     ../../../../modules/home/gh.nix
+    ../../../../modules/home/nixvim
     # ../../../../modules/home/dropbox.nix
   ];
 

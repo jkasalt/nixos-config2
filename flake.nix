@@ -9,13 +9,24 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     stylix = {
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nvim-flake = {
-      url = "github:jkasalt/nvim-flake";
+    kulala-nvim = {
+      url = "github:mistweaverco/kulala.nvim";
+      flake = false;
+    };
+
+    oasis-nvim = {
+      url = "github:uhs-robert/oasis.nvim";
+      flake = false;
     };
 
     treefmt-nix = {
