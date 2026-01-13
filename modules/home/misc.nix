@@ -26,9 +26,6 @@ let gnucash-wrapped =
     ani-cli
     comma
     yt-dlp
-    ghc
-    cabal-install
-    stack
     pkg-config
   ];
   home.sessionPath = [ "$HOME/.cargo/bin" ];
