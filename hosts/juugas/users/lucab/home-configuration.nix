@@ -11,6 +11,7 @@
     ../../../../modules/home/misc.nix
     ../../../../modules/home/gh.nix
     ../../../../modules/home/nixvim
+    ../../../../modules/home/taskwarrior.nix
     # ../../../../modules/home/dropbox.nix
   ];
 
