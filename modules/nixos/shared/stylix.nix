@@ -48,11 +48,10 @@ in
       };
       monospace = {
         package = pkgs.nerd-fonts.geist-mono;
-        name = "GeistMono Nerd Font Mono";
+        name = "FiraCode Nerd Font Mono";
       };
     };
 
     targets.qt.platform = lib.mkForce "qtct";
-    # targets.emacs.enable = false;
   };
 }
