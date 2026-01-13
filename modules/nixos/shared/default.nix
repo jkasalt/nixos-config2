@@ -9,7 +9,8 @@
     # ./kanata.nix
     # ./kde.nix
     ./appimages.nix
-    ./scheduled-shutdown.nix
+    ./interception-tools.nix
+    ./docker.nix
   ];
 
   environment.systemPackages = with pkgs; [
