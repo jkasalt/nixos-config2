@@ -3,7 +3,7 @@ _: {
     let
       enable = {
         enable = true;
-        enableNushellIntegration = true;
+        enableFishIntegration = true;
       };
     in
     {
@@ -11,7 +11,8 @@ _: {
       carapace = enable;
       zoxide = enable;
       starship = enable;
-      direnv = enable // {
+      direnv = {
+        enable = true;
         nix-direnv.enable = true;
       };
     };

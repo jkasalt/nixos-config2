@@ -1,6 +1,17 @@
-{ pkgs, ... }:
+{ pkgs, lib, config, ... }:
+with lib;
+let cfg = config.shell; in
 {
-  programs.fish = {
-    enable = true;
+  options.shell = {
+    shellAliases = mkOption {
+      type = with types; attrsOf str;
+    };
+  };
+
+  config = {
+    programs.fish = {
+      enable = true;
+      inherit (cfg) shellAliases;
+    };
   };
 }
