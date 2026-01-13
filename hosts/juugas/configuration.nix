@@ -73,8 +73,6 @@
       # no need to redefine it in your config for now)
       #media-session.enable = true;
     };
-
-    xserver.xkb.options = "caps:swapescape";
   };
 
   # Configure console keymap

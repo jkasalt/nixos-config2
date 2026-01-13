@@ -29,6 +29,11 @@
       flake = false;
     };
 
+    sarnai-nvim = {
+      url = "github:titembaatar/sarnai.nvim";
+      flake = false;
+    };
+
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
