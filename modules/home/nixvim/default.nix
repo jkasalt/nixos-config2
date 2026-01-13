@@ -15,6 +15,5 @@
     withRuby = false;
     globals.mapleader = " ";
     extraPlugins = with pkgs.vimPlugins; [ miasma-nvim ];
-    plugins.indent-blankline.enable = true;
   };
 }

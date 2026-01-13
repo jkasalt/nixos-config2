@@ -10,5 +10,11 @@ _: {
       key = "H";
       options.silent = true;
     }
+    {
+      action = "<ESC>";
+      key = "jk";
+      mode = ["i"];
+      options.silent = true;
+    }
   ];
 }

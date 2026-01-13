@@ -9,5 +9,6 @@ _: {
     ./completion.nix
     ./autopairs.nix
     ./git.nix
+    ./snacks.nix
   ];
 }
