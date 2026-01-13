@@ -35,6 +35,7 @@ let gnucash-wrapped =
   programs = {
     emacs.enable = true;
     ghostty.enable = true;
+    ghostty.enableFishIntegration = true;
     kitty.enable = true;
     kitty.settings = {
       font_size = 13.0;
