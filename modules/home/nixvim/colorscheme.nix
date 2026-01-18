@@ -11,8 +11,10 @@
       })
     ];
     extraConfigLua = ''
-      require("oasis").setup()
-      vim.cmd.colorscheme("oasis-midnight")
+      require("oasis").setup({
+        style = "midnight"
+      })
+      vim.cmd.colorscheme("oasis")
     '';
   };
 }
