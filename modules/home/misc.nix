@@ -36,10 +36,8 @@ let gnucash-wrapped =
     emacs.enable = true;
     ghostty.enable = true;
     ghostty.enableFishIntegration = true;
+    foot.enable = true;
     kitty.enable = true;
-    kitty.settings = {
-      font_size = 13.0;
-    };
 
     zathura = {
         enable = true;
