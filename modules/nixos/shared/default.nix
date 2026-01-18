@@ -11,6 +11,7 @@
     ./appimages.nix
     ./interception-tools.nix
     ./docker.nix
+    ./niri.nix
   ];
 
   environment.systemPackages = with pkgs; [
