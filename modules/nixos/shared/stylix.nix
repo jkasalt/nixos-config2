@@ -38,16 +38,8 @@ in
     image = ./wallpapers/luminescent.jpg;
 
     fonts = {
-      serif = {
-        package = pkgs.dejavu_fonts;
-        name = "DejaVu Serif";
-      };
-      sansSerif = {
-        name = "DejaVu Sans";
-        package = pkgs.dejavu_fonts;
-      };
       monospace = {
-        package = pkgs.nerd-fonts.geist-mono;
+        package = pkgs.nerd-fonts.fira-code;
         name = "FiraCode Nerd Font Mono";
       };
     };
