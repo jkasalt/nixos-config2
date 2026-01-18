@@ -12,6 +12,7 @@
     ../../../../modules/home/gh.nix
     ../../../../modules/home/nixvim
     ../../../../modules/home/taskwarrior.nix
+    ../../../../modules/home/noctalia.nix
     # ../../../../modules/home/dropbox.nix
   ];
 
