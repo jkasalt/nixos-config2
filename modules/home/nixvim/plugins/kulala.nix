@@ -16,24 +16,5 @@ in
         global_keymaps = true;
       };
     };
-
-    treesitter = {
-      enable = true;
-      grammarPackages = [ kulala-http-grammar ];
-      luaConfig.post = # lua
-        ''
-          do
-          local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
-          -- change the following as needed
-          parser_config.kulala_http = {
-            install_info = {
-              url = "${kulala-http-grammar}",
-              files = {"src/parser.c"},
-            },
-            filetype = "kulala_http",
-          }
-          end
-        '';
-    };
   };
 }
