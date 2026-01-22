@@ -60,15 +60,11 @@ let gnucash-wrapped =
       enable = true;
 
       package = (
-        pkgs.mpv-unwrapped.wrapper {
+        pkgs.mpv.override {
           scripts = with pkgs.mpvScripts; [
             uosc
             sponsorblock
           ];
-
-          mpv = pkgs.mpv-unwrapped.override {
-            waylandSupport = true;
-          };
         }
       );
 
@@ -77,7 +73,6 @@ let gnucash-wrapped =
         ytdl-format = "bestvideo+bestaudio";
         cache-default = 4000000;
         gpu-context = "wayland";
-
       };
     };
 
