@@ -27,6 +27,7 @@ let gnucash-wrapped =
     comma
     yt-dlp
     pkg-config
+    kdePackages.okular
   ];
   home.sessionPath = [ "$HOME/.cargo/bin" ];
 
