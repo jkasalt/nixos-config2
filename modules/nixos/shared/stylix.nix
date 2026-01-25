@@ -1,6 +1,5 @@
 {
   pkgs,
-  inputs,
   lib,
   ...
 }:
@@ -39,8 +38,8 @@ in
 
     fonts = {
       monospace = {
-        package = pkgs.nerd-fonts.jetbrains-mono;
-        name = "JetBrainsMono Nerd Font";
+        package = pkgs.nerd-fonts.recursive-mono;
+        name = "RecMonoDuotone Nerd Font";
       };
     };
 

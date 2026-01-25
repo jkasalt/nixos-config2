@@ -9,12 +9,13 @@
         name = "sarnai.nvim";
         src = inputs.sarnai-nvim.outPath;
       })
+      pkgs.vimPlugins.lush-nvim
+      pkgs.vimPlugins.zenbones-nvim
+      pkgs.vimPlugins.lackluster-nvim
+      pkgs.vimPlugins.poimandres-nvim
     ];
     extraConfigLua = ''
-      require("oasis").setup({
-        style = "midnight"
-      })
-      vim.cmd.colorscheme("oasis")
+      vim.cmd.colorscheme("lackluster")
     '';
   };
 }
