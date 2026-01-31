@@ -6,16 +6,17 @@
         src = inputs.oasis-nvim.outPath;
       })
       (pkgs.vimUtils.buildVimPlugin {
-        name = "sarnai.nvim";
-        src = inputs.sarnai-nvim.outPath;
+        name = "koda.nvim";
+        src = inputs.koda-nvim.outPath;
       })
       pkgs.vimPlugins.lush-nvim
       pkgs.vimPlugins.zenbones-nvim
       pkgs.vimPlugins.lackluster-nvim
       pkgs.vimPlugins.poimandres-nvim
+      pkgs.vimPlugins.kanso-nvim
     ];
     extraConfigLua = ''
-      vim.cmd.colorscheme("lackluster")
+      vim.cmd.colorscheme("koda")
     '';
   };
 }

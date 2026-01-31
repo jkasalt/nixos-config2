@@ -39,8 +39,8 @@
       flake = false;
     };
 
-    sarnai-nvim = {
-      url = "github:titembaatar/sarnai.nvim";
+    koda-nvim = {
+      url = "github:oskarnurm/koda.nvim";
       flake = false;
     };
 
