@@ -3,7 +3,7 @@
   home.packages = [pkgs.taskwarrior3];
   imports = [./shell.nix];
 
-  home.file."~/.config/task/taskrc".text = ''
+  home.file.".config/task/taskrc".text = ''
     urgency.user.tag.in.coefficient=15.0
     report.in.columns           = id,description
     report.in.description       = Inbox

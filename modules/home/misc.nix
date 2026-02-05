@@ -28,6 +28,8 @@ let gnucash-wrapped =
     yt-dlp
     pkg-config
     kdePackages.okular
+    codex
+    libreoffice
   ];
   home.sessionPath = [ "$HOME/.cargo/bin" ];
 
