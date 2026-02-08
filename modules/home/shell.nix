@@ -1,6 +1,13 @@
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 with lib;
-let cfg = config.shell; in
+let
+  cfg = config.shell;
+in
 {
   options.shell = {
     shellAliases = mkOption {

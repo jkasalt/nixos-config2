@@ -1,10 +1,4 @@
-{inputs, ...}: let inherit (inputs) niri; in {
-  imports = [
-    niri.nixosModules.niri
-  ];
-
-  nixpkgs.overlays = [ niri.overlays.niri ];
-
+_: {
   programs.niri = {
     enable = true;
   };

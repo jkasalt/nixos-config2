@@ -5,12 +5,8 @@
       enable = true;
 
       settings = {
-        indent = {
-          enable = true;
-        };
-        highlight = {
-          enable = true;
-        };
+        indent.enable = false;
+        highlight.enable = true;
       };
 
       nixvimInjections = true;

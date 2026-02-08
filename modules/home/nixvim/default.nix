@@ -1,7 +1,6 @@
-{ inputs, pkgs, ... }:
+{ pkgs, ... }:
 {
   imports = [
-    inputs.nixvim.homeModules.nixvim
     ./languages
     ./plugins
     ./keymaps.nix
@@ -14,6 +13,6 @@
     withPython3 = false;
     withRuby = false;
     globals.mapleader = " ";
-    extraPlugins = with pkgs.vimPlugins; [ miasma-nvim ];
+    extraPlugins = [ pkgs.vimPlugins.miasma-nvim ];
   };
 }

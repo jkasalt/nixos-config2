@@ -1,8 +1,9 @@
-{ pkgs, ...}:
+{ pkgs, ... }:
 let
   intercept = "${pkgs.interception-tools}/bin/intercept";
   uinput = "${pkgs.interception-tools}/bin/uinput";
-in {
+in
+{
   services.interception-tools = {
     enable = true;
     plugins = with pkgs; [
@@ -18,4 +19,3 @@ in {
     '';
   };
 }
-

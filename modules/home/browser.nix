@@ -1,10 +1,3 @@
-{
-  inputs,
-  pkgs,
-  ...
-}:
-{
-  home.packages = [
-    inputs.zen-browser.packages."${pkgs.stdenv.hostPlatform.system}".beta
-  ];
+_: {
+  programs.zen-browser.enable = true;
 }

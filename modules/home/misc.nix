@@ -1,11 +1,12 @@
 {
   pkgs,
-  inputs,
   ...
 }:
-let gnucash-wrapped =
-    pkgs.runCommand "gnucash" {buildInputs = [pkgs.makeWrapper];} ''makeWrapper ${pkgs.gnucash}/bin/gnucash $out/bin/gnucash --set WEBKIT_DISABLE_COMPOSITING_MODE 1'';
-    in
+let
+  gnucash-wrapped =
+    pkgs.runCommand "gnucash" { buildInputs = [ pkgs.makeWrapper ]; }
+      "makeWrapper ${pkgs.gnucash}/bin/gnucash $out/bin/gnucash --set WEBKIT_DISABLE_COMPOSITING_MODE 1";
+in
 {
   home.packages = with pkgs; [
     htop
@@ -20,7 +21,10 @@ let gnucash-wrapped =
     # }))
     (pkgs.symlinkJoin {
       name = "gnucash";
-      paths = [gnucash-wrapped pkgs.gnucash];
+      paths = [
+        gnucash-wrapped
+        pkgs.gnucash
+      ];
     })
     ihp-new
     ani-cli
@@ -43,10 +47,10 @@ let gnucash-wrapped =
     kitty.enable = true;
 
     zathura = {
-        enable = true;
-        options = {
-            selection-clipboard = "clipboard";
-        };
+      enable = true;
+      options = {
+        selection-clipboard = "clipboard";
+      };
     };
 
     zk = {

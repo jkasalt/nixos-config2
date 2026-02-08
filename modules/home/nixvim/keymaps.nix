@@ -13,7 +13,7 @@ _: {
     {
       action = "<ESC>";
       key = "jk";
-      mode = ["i"];
+      mode = [ "i" ];
       options.silent = true;
     }
   ];

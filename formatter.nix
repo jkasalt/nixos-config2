@@ -1,10 +1,11 @@
 {
   pkgs,
-  inputs,
+  treefmt-nix,
+  system,
   ...
 }:
 let
-  treefmtEval = inputs.treefmt-nix.lib.evalModule pkgs {
+  treefmtEval = treefmt-nix.lib.evalModule pkgs {
     programs.nixfmt.enable = true;
     settings.formatter.nixfmt.excludes = [ "hardware-configuration.nix" ];
   };

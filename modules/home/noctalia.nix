@@ -1,9 +1,4 @@
-{inputs, ...}: {
-
-  imports = [
-    inputs.noctalia.homeModules.default
-  ];
-
+_: {
   programs.noctalia-shell = {
     enable = true;
   };

@@ -1,4 +1,5 @@
-{lib, ...}: {
+{ lib, ... }:
+{
   programs.nixvim = {
     plugins.web-devicons.enable = true;
     plugins.telescope = {
@@ -13,7 +14,11 @@
       let
         mkKeymap = key: action: {
           inherit key;
-          action = lib.strings.concatStrings ["<CMD>Telescope " action "<CR>"];
+          action = lib.strings.concatStrings [
+            "<CMD>Telescope "
+            action
+            "<CR>"
+          ];
           mode = "n";
           options = {
             silent = true;
