@@ -1,7 +1,6 @@
 {
   pkgs,
   treefmt-nix,
-  system,
   ...
 }:
 let

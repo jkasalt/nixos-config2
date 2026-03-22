@@ -34,8 +34,14 @@ in
     kdePackages.okular
     codex
     libreoffice
+    cmake
+    libtool
   ];
-  home.sessionPath = [ "$HOME/.cargo/bin" ];
+
+  home.sessionPath = [ 
+    "$HOME/.cargo/bin"
+    "$HOME/.config/emacs/bin"
+  ];
 
   gtk.gtk2.force = true;
 
