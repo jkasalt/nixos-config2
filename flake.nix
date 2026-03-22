@@ -44,6 +44,11 @@
       flake = false;
     };
 
+    tokusa-nvim = {
+      url = "github:aidyak/tokusa";
+      flake = false;
+    };
+
     stylix = {
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -73,6 +78,7 @@
       nixvim,
       oasis-nvim,
       koda-nvim,
+      tokusa-nvim,
       treefmt-nix,
       ...
     }:
@@ -121,6 +127,10 @@
           koda-nvim = prev.vimUtils.buildVimPlugin {
             name = "koda.nvim";
             src = koda-nvim.outPath;
+          };
+          tokusa-nvim = prev.vimUtils.buildVimPlugin {
+            name = "tokusa.nvim";
+            src = tokusa-nvim.outPath;
           };
         };
       };

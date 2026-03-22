@@ -9,9 +9,10 @@
       pkgs.vimPlugins.kanso-nvim
       pkgs.vimPlugins.oasis-nvim
       pkgs.vimPlugins.koda-nvim
+      pkgs.vimPlugins.tokusa-nvim
     ];
     extraConfigLua = ''
-      vim.cmd.colorscheme("koda")
+      vim.cmd.colorscheme("tokusa")
     '';
   };
 }
