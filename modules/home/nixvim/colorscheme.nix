@@ -11,8 +11,9 @@
       pkgs.vimPlugins.koda-nvim
       pkgs.vimPlugins.tokusa-nvim
     ];
-    extraConfigLua = ''
-      vim.cmd.colorscheme("tokusa")
-    '';
+    colorschemes.gruvbox = {
+      enable = true;
+      package = pkgs.vimPlugins.gruvbox;
+    };
   };
 }

@@ -33,7 +33,7 @@ in
 {
   stylix = {
     enable = true;
-    base16Scheme = "${sarnaiTheme}";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
     image = ./wallpapers/luminescent.jpg;
 
     fonts = {
