@@ -18,7 +18,7 @@
     fileSystems = ["/"];
   };
 
-  networking.hostname = "jugito";
+  networking.hostName = "jugito";
 
   networking.networkmanager.enable = true;
 
@@ -36,7 +36,7 @@
     extraGroups = ["wheel" "networkManager"];
   };
 
-  users.group.lucab = {};
+  users.groups.lucab = {};
 
   console.keyMap = "fr_CH";
 
