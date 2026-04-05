@@ -85,6 +85,7 @@
       koda-nvim,
       tokusa-nvim,
       treefmt-nix,
+      disko,
       ...
     }:
     let
@@ -119,6 +120,13 @@
             { nixpkgs.overlays = [ self.overlays.default ]; }
             niri.nixosModules.niri
             stylix.nixosModules.stylix
+          ];
+        };
+        jugito = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            ./hosts/jugito/configuration.nix
+            disko.nixosModules.disko
           ];
         };
       };
