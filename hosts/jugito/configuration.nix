@@ -1,9 +1,16 @@
-{ config, lib, pkgs, ... }:
+{ inputs, config, lib, pkgs, ... }:
 
 {
   imports = [
     ./disks.nix
+    ./hardware-configuration.nix
+    ../../modules/nixos/shared/niri.nix
   ];
+
+  hardware = {
+    enableRedistributableFirmware = true;
+    bluetooth.enable = true;
+  };
 
   boot.initrd.luks.devices = {
     cryptroot = {
@@ -12,10 +19,14 @@
     };
   };
 
-  services.btrfs.autoScrub = {
-    enable = true;
-    interval = "weekly";
-    fileSystems = ["/"];
+  services = {
+    btrfs.autoScrub = {
+      enable = true;
+      interval = "weekly";
+      fileSystems = ["/"];
+    };
+    power-profiles-daemon.enable = true;
+    upower.enable = true;
   };
 
   networking.hostName = "jugito";
@@ -27,6 +38,8 @@
   environment.systemPackages = with pkgs; [
     vim
     git
+    helix
+    inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   time.timeZone = "Europe/Zurich";
@@ -41,4 +54,6 @@
   console.keyMap = "fr_CH";
 
   system.stateVersion = "25.11";
+
+  nix.settings.extra-experimental-features = ["flakes" "nix-command"];
 }

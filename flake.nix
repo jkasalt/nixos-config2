@@ -72,7 +72,7 @@
   };
 
   outputs =
-    {
+    inputs@{
       self,
       nixpkgs,
       stylix,
@@ -128,6 +128,7 @@
             ./hosts/jugito/configuration.nix
             disko.nixosModules.disko
           ];
+          specialArgs = {inherit inputs;};
         };
       };
       formatter.${system} = pkgs.callPackage ./formatter.nix { inherit treefmt-nix; };
