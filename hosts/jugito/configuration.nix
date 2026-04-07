@@ -29,10 +29,17 @@
     btrfs.autoScrub = {
       enable = true;
       interval = "weekly";
-      fileSystems = ["/"];
+      fileSystems = [ "/" ];
     };
     power-profiles-daemon.enable = true;
     upower.enable = true;
+  };
+
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep 5 --keep-since 3d";
+    flake = config.networking.hostName;
   };
 
   networking.hostName = "jugito";
