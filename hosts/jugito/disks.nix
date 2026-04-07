@@ -20,7 +20,7 @@
             type = "filesystem";
             format = "vfat";
             mountpoint = "/boot";
-            mountOptions = ["defaults"];
+            mountOptions = [ "defaults" ];
           };
         };
         luks = {
@@ -31,38 +31,75 @@
             name = "cryptroot";
             content = {
               type = "btrfs";
-              extraArgs = ["-L" "nixos" "-f"];
+              extraArgs = [
+                "-L"
+                "nixos"
+                "-f"
+              ];
               subvolumes = {
                 "/root" = {
                   mountpoint = "/";
-                  mountOptions = ["subvol=root" "compress=zstd" "noatime"];
+                  mountOptions = [
+                    "subvol=root"
+                    "compress=zstd"
+                    "noatime"
+                  ];
                 };
                 "/root-blank" = {
-                  mountOptions = ["subvol=root-blank" "nodatacow" "noatime"];
+                  mountOptions = [
+                    "subvol=root-blank"
+                    "nodatacow"
+                    "noatime"
+                  ];
                 };
                 "/home" = {
                   mountpoint = "/home";
-                  mountOptions = ["subvol=home" "compress=zstd" "noatime"];
+                  mountOptions = [
+                    "subvol=home"
+                    "compress=zstd"
+                    "noatime"
+                  ];
                 };
                 "/nix" = {
                   mountpoint = "/nix";
-                  mountOptions = ["subvol=nix" "compress=zstd" "noatime"];
+                  mountOptions = [
+                    "subvol=nix"
+                    "compress=zstd"
+                    "noatime"
+                  ];
                 };
                 "/persist" = {
                   mountpoint = "/persist";
-                  mountOptions = ["subvol=persist" "compress=zstd" "noatime"];
+                  mountOptions = [
+                    "subvol=persist"
+                    "compress=zstd"
+                    "noatime"
+                  ];
                 };
                 "/log" = {
                   mountpoint = "/var/log";
-                  mountOptions = ["subvol=log" "compress=zstd" "noatime"];
+                  mountOptions = [
+                    "subvol=log"
+                    "compress=zstd"
+                    "noatime"
+                  ];
                 };
                 "/lib" = {
                   mountpoint = "/var/lib";
-                  mountOptions = ["subvol=lib" "compress=zstd" "noatime"];
+                  mountOptions = [
+                    "subvol=lib"
+                    "compress=zstd"
+                    "noatime"
+                  ];
                 };
                 "/persist/swap" = {
                   mountpoint = "/persist/swap";
-                  mountOptions = ["subvol=swap" "noatime" "nodatacow" "compress=no"];
+                  mountOptions = [
+                    "subvol=swap"
+                    "noatime"
+                    "nodatacow"
+                    "compress=no"
+                  ];
                   swap.swapfile.size = "18G";
                 };
               };

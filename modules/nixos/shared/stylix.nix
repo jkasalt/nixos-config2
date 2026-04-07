@@ -46,7 +46,9 @@ in
     targets.qt.platform = lib.mkForce "qtct";
   };
 
-  home-manager.sharedModules = [{
-    stylix.targets.emacs.enable = false; 
-  }];
+  home-manager.sharedModules = [
+    {
+      stylix.targets.emacs.enable = false;
+    }
+  ];
 }

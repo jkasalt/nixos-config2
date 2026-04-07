@@ -38,7 +38,7 @@ in
     libtool
   ];
 
-  home.sessionPath = [ 
+  home.sessionPath = [
     "$HOME/.cargo/bin"
     "$HOME/.config/emacs/bin"
   ];

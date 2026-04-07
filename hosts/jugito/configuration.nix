@@ -1,4 +1,10 @@
-{ inputs, config, lib, pkgs, ... }:
+{
+  inputs,
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   imports = [
@@ -40,20 +46,27 @@
     git
     helix
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
+    firefox
   ];
 
   time.timeZone = "Europe/Zurich";
 
   users.users.lucab = {
     isNormalUser = true;
-    extraGroups = ["wheel" "networkManager"];
+    extraGroups = [
+      "wheel"
+      "networkManager"
+    ];
   };
 
-  users.groups.lucab = {};
+  users.groups.lucab = { };
 
   console.keyMap = "fr_CH";
 
   system.stateVersion = "25.11";
 
-  nix.settings.extra-experimental-features = ["flakes" "nix-command"];
+  nix.settings.extra-experimental-features = [
+    "flakes"
+    "nix-command"
+  ];
 }

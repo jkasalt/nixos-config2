@@ -69,84 +69,86 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    flake-parts.url = "github:hercules-ci/flake-parts";
+
+    import-tree.url = "github:vic/import-tree";
+    den.url = "github:vic/den";
+
   };
 
   outputs =
-    inputs@{
-      self,
-      nixpkgs,
-      stylix,
-      home-manager,
-      zen-browser,
-      niri,
-      noctalia,
-      nixvim,
-      oasis-nvim,
-      koda-nvim,
-      tokusa-nvim,
-      treefmt-nix,
-      disko,
-      ...
-    }:
-    let
-      system = "x86_64-linux";
-      pkgs = import nixpkgs {
-        config = { };
-        overlays = [ ];
-        inherit system;
-      };
-    in
-    {
-      nixosConfigurations = {
-        juugas = nixpkgs.lib.nixosSystem {
-          inherit system;
-          modules = [
-            ./hosts/juugas/configuration.nix
-            home-manager.nixosModules.home-manager
-            {
-              home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                users.lucab = ./hosts/juugas/users/lucab/home-configuration.nix;
-                backupFileExtension = "bak";
-                sharedModules = [
-                  noctalia.homeModules.default
-                  nixvim.homeModules.nixvim
-                  zen-browser.homeModules.beta
+    inputs@{ nixpkgs, flake-parts, ... }:
+    flake-parts.lib.mkFlake { inherit inputs; } (
+      top@{
+        config,
+        withSystem,
+        moduleWithSystem,
+        ...
+      }:
+      {
+        flake =
+          let
+            system = "x86_64-linux";
+            pkgs = import nixpkgs {
+              config = { };
+              overlays = [ ];
+              inherit system;
+            };
+          in
+          {
+            nixosConfigurations = {
+              juugas = nixpkgs.lib.nixosSystem {
+                inherit system;
+                modules = with inputs; [
+                  ./hosts/juugas/configuration.nix
+                  home-manager.nixosModules.home-manager
+                  {
+                    home-manager = {
+                      useGlobalPkgs = true;
+                      useUserPackages = true;
+                      users.lucab = ./hosts/juugas/users/lucab/home-configuration.nix;
+                      backupFileExtension = "bak";
+                      sharedModulinputs.es = [
+                        noctalia.homeModules.default
+                        nixvim.homeModules.nixvim
+                        zen-browser.homeModules.beta
+                      ];
+                    };
+                  }
+                  { nixpkgs.overlays = [ niri.overlays.niri ]; }
+                  { nixpkgs.overlays = [ self.overlays.default ]; }
+                  niri.nixosModules.niri
+                  stylix.nixosModules.stylix
                 ];
               };
-            }
-            { nixpkgs.overlays = [ niri.overlays.niri ]; }
-            { nixpkgs.overlays = [ self.overlays.default ]; }
-            niri.nixosModules.niri
-            stylix.nixosModules.stylix
-          ];
-        };
-        jugito = nixpkgs.lib.nixosSystem {
-          inherit system;
-          modules = [
-            ./hosts/jugito/configuration.nix
-            disko.nixosModules.disko
-          ];
-          specialArgs = {inherit inputs;};
-        };
-      };
-      formatter.${system} = pkgs.callPackage ./formatter.nix { inherit treefmt-nix; };
-      overlays.default = final: prev: {
-        vimPlugins = prev.vimPlugins or {} // {
-          oasis-nvim = prev.vimUtils.buildVimPlugin {
-            name = "oasis.nvim";
-            src = oasis-nvim.outPath;
+              jugito = nixpkgs.lib.nixosSystem {
+                inherit system;
+                modules = with inputs; [
+                  ./hosts/jugito/configuration.nix
+                  disko.nixosModules.disko
+                ];
+                specialArgs = { inherit inputs; };
+              };
+            };
+            formatter.${system} = pkgs.callPackage ./formatter.nix { inherit (inputs) treefmt-nix; };
+            overlays.default = final: prev: {
+              vimPlugins = prev.vimPlugins or { } // {
+                oasis-nvim = prev.vimUtils.buildVimPlugin {
+                  name = "oasis.nvim";
+                  src = inputs.oasis-nvim.outPath;
+                };
+                koda-nvim = prev.vimUtils.buildVimPlugin {
+                  name = "koda.nvim";
+                  src = inputs.koda-nvim.outPath;
+                };
+                tokusa-nvim = prev.vimUtils.buildVimPlugin {
+                  name = "tokusa.nvim";
+                  src = inputs.tokusa-nvim.outPath;
+                };
+              };
+            };
           };
-          koda-nvim = prev.vimUtils.buildVimPlugin {
-            name = "koda.nvim";
-            src = koda-nvim.outPath;
-          };
-          tokusa-nvim = prev.vimUtils.buildVimPlugin {
-            name = "tokusa.nvim";
-            src = tokusa-nvim.outPath;
-          };
-        };
-      };
-    };
+      }
+    );
 }
