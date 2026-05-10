@@ -75,6 +75,12 @@
     import-tree.url = "github:vic/import-tree";
 
     wrapper-modules.url = "github:birdeehub/nix-wrapper-modules";
+
+    hm-wrapper-modules = {
+      url = "github:sini/hm-wrapper-modules";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
   };
 
   outputs =
