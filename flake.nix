@@ -73,20 +73,22 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
 
     import-tree.url = "github:vic/import-tree";
-    den.url = "github:vic/den";
 
+    wrapper-modules.url = "github:birdeehub/nix-wrapper-modules";
   };
 
   outputs =
     inputs@{ nixpkgs, flake-parts, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } (
-      top@{
-        config,
-        withSystem,
-        moduleWithSystem,
-        ...
-      }:
+      _:
+      let
+        tree-imports = (inputs.import-tree ./flake-modules).imports;
+        other-imports = [ inputs.home-manager.flakeModules.home-manager ];
+        imports = tree-imports ++ other-imports;
+      in
       {
+        inherit imports;
+        systems = [ "x86_64-linux" ];
         flake =
           let
             system = "x86_64-linux";
@@ -122,17 +124,9 @@
                   stylix.nixosModules.stylix
                 ];
               };
-              jugito = nixpkgs.lib.nixosSystem {
-                inherit system;
-                modules = with inputs; [
-                  ./hosts/jugito/configuration.nix
-                  disko.nixosModules.disko
-                ];
-                specialArgs = { inherit inputs; };
-              };
             };
             formatter.${system} = pkgs.callPackage ./formatter.nix { inherit (inputs) treefmt-nix; };
-            overlays.default = final: prev: {
+            overlays.default = _final: prev: {
               vimPlugins = prev.vimPlugins or { } // {
                 oasis-nvim = prev.vimUtils.buildVimPlugin {
                   name = "oasis.nvim";

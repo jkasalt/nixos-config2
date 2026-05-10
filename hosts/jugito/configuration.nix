@@ -1,7 +1,6 @@
 {
   inputs,
   config,
-  lib,
   pkgs,
   ...
 }:
@@ -10,7 +9,6 @@
   imports = [
     ./disks.nix
     ./hardware-configuration.nix
-    ../../modules/nixos/shared/niri.nix
   ];
 
   hardware = {
@@ -54,6 +52,8 @@
     helix
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
     firefox
+    emacs-pgtk
+    brightnessctl
   ];
 
   time.timeZone = "Europe/Zurich";
