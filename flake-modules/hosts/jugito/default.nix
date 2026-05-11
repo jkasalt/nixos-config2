@@ -10,7 +10,6 @@
       jugito-hardware
       jugito-disko
       niri
-      ly
     ];
   };
 
@@ -46,7 +45,7 @@
       programs.nh = {
         enable = true;
         clean.enable = true;
-        clean.extraArgs = "--keep 5 --keep-since 3d";
+        clean.extraArgs = "--keep 5 --keep-since 14d";
         flake = config.networking.hostName;
       };
 
@@ -62,10 +61,19 @@
         helix
         inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
         firefox
-        emacs-pgtk
         brightnessctl
         gcc
       ];
+
+      services.tlp = {
+        enable = true;
+        settings = {
+          START_CHARGE_THRESH_BAT0 = 75;
+          STOP_CHARGE_THRESH_BAT0 = 85;
+          START_CHARGE_THRESH_BAT1 = 75;
+          STOP_CHARGE_THRESH_BAT1 = 85;
+        };
+      };
 
       time.timeZone = "Europe/Zurich";
 

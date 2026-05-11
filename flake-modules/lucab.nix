@@ -14,6 +14,7 @@ in
         }
         git
         shell
+        emacs
       ];
     };
   };
