@@ -11,6 +11,8 @@
       ...
     }:
     {
+      security.polkit.enable = true;
+      services.gnome.gnome-keyring.enable = true;
       programs.niri = {
         enable = true;
         package = withSystem pkgs.stdenv.hostPlatform.system ({ self', ... }: self'.packages.niri);
