@@ -34,6 +34,7 @@
         settings =
           let
             noctaliaBin = lib.getExe self'.packages.noctaliaShell;
+            bash = lib.getExe pkgs.bash;
             allowWhenLocked =
               thing: _:
               (thing { })
@@ -86,6 +87,13 @@
 
               XF86MonBrightnessUp = allowWhenLocked (spawn "brightnessctl --class=backlight set +10%");
               XF86MonBrightnessDown = allowWhenLocked (spawn "brightnessctl --class=backlight set 10%-");
+              "Mod+Space" =
+                let
+                  kbd_light = "brightnessctl -d tpacpi::kbd_backlight";
+                in
+                {
+                  spawn-sh = "${bash} -c ${kbd_light} set $(( ($(${kbd_light} get) + 1) % 3 ))";
+                };
             };
 
             layout = {
