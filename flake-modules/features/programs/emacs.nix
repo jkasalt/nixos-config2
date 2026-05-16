@@ -19,6 +19,8 @@
         ripgrep
         nil
         gcc # for tree-sitter
+        cmigemo # for searching japanese buffers with romaji
+        mozc-ut # for japanese input
       ];
     };
 }
