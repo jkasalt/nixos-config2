@@ -7,18 +7,13 @@
         package = pkgs.emacs-pgtk;
         extraPackages = epkgs: [
           epkgs.vterm
-          (epkgs.treesit-grammars.with-grammars (g: [
-            g.tree-sitter-nix
-            g.tree-sitter-haskell
-            g.tree-sitter-bash
-          ]))
+          epkgs.treesit-grammars.with-all-grammars
         ];
       };
       services.emacs.enable = true;
       home.packages = with pkgs; [
         ripgrep
         nil # nix lsp
-        gcc # for tree-sitter
         git-sync # for org-mode sync
         cmigemo # for searching japanese buffers with romaji
         mozc-ut # for japanese input
