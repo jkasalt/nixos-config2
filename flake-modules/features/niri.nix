@@ -71,6 +71,8 @@
               };
             };
 
+            screenshot-path = "~/Pictures/Screenshots/Screenshot-%Y-%m-%dT%H-%M-%S.png";
+
             binds = {
               "Mod+Return".spawn = lib.getExe pkgs.kitty;
               "Mod+S" = noctaliaDo "launcher toggle";
@@ -78,6 +80,10 @@
               "Mod+M" = do "maximize-window-to-edges";
               "Mod+Shift+H" = do "show-hotkey-overlay";
               "Mod+Q" = do "close-window";
+
+              Print = do "screenshot";
+              "Ctrl+Print" = do "screenshot-screen";
+              "Alt+Print" = do "screenshot-window";
 
               XF86AudioRaiseVolume = allowWhenLocked (noctaliaDo "volume increase");
               XF86AudioLowerVolume = allowWhenLocked (spawn "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-");
