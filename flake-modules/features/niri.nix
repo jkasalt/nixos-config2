@@ -11,7 +11,10 @@
       ...
     }:
     {
-      security.polkit.enable = true;
+      security = {
+        polkit.enable = true;
+        pam.services.login.enableGnomeKeyring = true;
+      };
       services.gnome.gnome-keyring.enable = true;
       programs.niri = {
         enable = true;
