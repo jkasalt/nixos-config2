@@ -81,6 +81,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
+
+    curd = {
+      url = "github:wraient/curd";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

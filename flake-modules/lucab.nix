@@ -15,6 +15,7 @@ in
         git
         shell
         emacs
+        media
       ];
     };
   };
