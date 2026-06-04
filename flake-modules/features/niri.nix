@@ -15,6 +15,7 @@
         polkit.enable = true;
         pam.services.login.enableGnomeKeyring = true;
       };
+      environment.systemPackages = [pkgs.nautilus];
       services.gnome.gnome-keyring.enable = true;
       programs.niri = {
         enable = true;
@@ -37,6 +38,7 @@
         settings =
           let
             noctaliaBin = lib.getExe self'.packages.noctaliaShell;
+            fcitx5Bin = lib.getExe pkgs.fcitx5;
             bash = lib.getExe pkgs.bash;
             allowWhenLocked =
               thing: _:
@@ -52,7 +54,7 @@
           in
           {
             prefer-no-csd = _: { };
-            spawn-at-startup = [ noctaliaBin ];
+            spawn-at-startup = [ noctaliaBin fcitx5Bin ];
 
             input = {
               keyboard = {
@@ -73,6 +75,8 @@
 
             screenshot-path = "~/Pictures/Screenshots/Screenshot-%Y-%m-%dT%H-%M-%S.png";
 
+            switch-events.lid-close = noctaliaDo "lockScreen lock";
+
             binds = {
               "Mod+Return".spawn = lib.getExe pkgs.kitty;
               "Mod+S" = noctaliaDo "launcher toggle";
@@ -80,6 +84,7 @@
               "Mod+M" = do "maximize-window-to-edges";
               "Mod+Shift+H" = do "show-hotkey-overlay";
               "Mod+Q" = do "close-window";
+              "Mod+L" = noctaliaDo "lockScreen lock";
 
               Print = do "screenshot";
               "Ctrl+Print" = do "screenshot-screen";

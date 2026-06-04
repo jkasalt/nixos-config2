@@ -4,19 +4,37 @@ let
 in
 {
   flake = {
+    nixosModules.lucab = {
+      users = {
+        users.lucab = {
+          isNormalUser = true;
+          extraGroups = [
+            "wheel"
+            "networkmanager"
+          ];
+        };
+        groups.lucab = { };
+      };
+    };
+
     homeConfigurations.lucab = inputs.home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
-      modules = with self.modules.homeManager; [
-        {
+      modules =
+        builtins.attrValues {
+          inherit (self.modules.homeManager)
+            git
+            shell
+            emacs
+            media
+            syncthing
+            browser
+            ;
+        }
+        ++ [{
           home.username = "lucab";
           home.homeDirectory = "/home/lucab";
           home.stateVersion = "26.05";
-        }
-        git
-        shell
-        emacs
-        media
-      ];
+        }];
     };
   };
 }

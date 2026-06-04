@@ -5,12 +5,15 @@
 }:
 {
   flake.nixosConfigurations.jugito = inputs.nixpkgs.lib.nixosSystem {
-    modules = with self.nixosModules; [
-      jugito-base
-      jugito-hardware
-      jugito-disko
-      niri
-    ];
+    modules = builtins.attrValues {
+      inherit (self.nixosModules)
+        jugito-base
+        jugito-hardware
+        jugito-disko
+        niri
+        lucab
+        ;
+    };
   };
 
   flake.nixosModules.jugito-base =
@@ -26,6 +29,7 @@
       };
 
       boot = {
+        kernelPackages = pkgs.linuxPackages_zen;
         initrd.luks.devices = {
           cryptroot = {
             device = "/dev/disk/by-partlabel/luks";
@@ -54,11 +58,14 @@
         fwupd.enable = true;
       };
 
-      programs.nh = {
-        enable = true;
-        clean.enable = true;
-        clean.extraArgs = "--keep 5 --keep-since 14d";
-        flake = config.networking.hostName;
+      programs = {
+        nh = {
+          enable = true;
+          clean.enable = true;
+          clean.extraArgs = "--keep 5 --keep-since 14d";
+          flake = config.networking.hostName;
+        };
+        direnv.enable = true;
       };
 
       networking = {
@@ -71,23 +78,11 @@
         git
         helix
         inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
-        firefox
         brightnessctl
         gcc
       ];
 
       time.timeZone = "Europe/Zurich";
-
-      users = {
-        users.lucab = {
-          isNormalUser = true;
-          extraGroups = [
-            "wheel"
-            "networkManager"
-          ];
-        };
-        groups.lucab = { };
-      };
 
       console.keyMap = "fr_CH";
 
@@ -102,13 +97,8 @@
         noto-fonts
         noto-fonts-cjk-sans
         noto-fonts-color-emoji
-        liberation_ttf
-        fira-code
-        fira-code-symbols
-        mplus-outline-fonts.githubRelease
-        dina-font
-        proggyfonts
         nerd-fonts.symbols-only
+        nerd-fonts.intone-mono
       ];
 
       i18n = {
