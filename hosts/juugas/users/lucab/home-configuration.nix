@@ -13,7 +13,7 @@
     ../../../../modules/home/nixvim
     ../../../../modules/home/taskwarrior.nix
     ../../../../modules/home/noctalia.nix
-    # ../../../../modules/home/dropbox.nix
+    ../../../../modules/home/dropbox.nix
   ];
 
   home = {

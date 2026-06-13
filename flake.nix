@@ -69,6 +69,11 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    cachyos-kernel = {
+      url = "github:xddxdd/nix-cachyos-kernel";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -86,6 +91,7 @@
       tokusa-nvim,
       treefmt-nix,
       disko,
+      cachyos-kernel,
       ...
     }:
     let
@@ -118,6 +124,7 @@
             }
             { nixpkgs.overlays = [ niri.overlays.niri ]; }
             { nixpkgs.overlays = [ self.overlays.default ]; }
+            { nixpkgs.overlays = [ cachyos-kernel.overlays.default ]; }
             niri.nixosModules.niri
             stylix.nixosModules.stylix
           ];

@@ -11,9 +11,9 @@
       pkgs.vimPlugins.koda-nvim
       pkgs.vimPlugins.tokusa-nvim
     ];
-    colorschemes.gruvbox = {
-      enable = true;
-      package = pkgs.vimPlugins.gruvbox;
-    };
+    # colorschemes.modus = {
+    #   enable = true;
+    #   settings.variant = "tinted";
+    # };
   };
 }

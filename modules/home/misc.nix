@@ -36,6 +36,7 @@ in
     libreoffice
     cmake
     libtool
+    stack
   ];
 
   home.sessionPath = [ 
@@ -44,6 +45,8 @@ in
   ];
 
   gtk.gtk2.force = true;
+
+  services.syncthing.enable = true;
 
   programs = {
     emacs.enable = true;

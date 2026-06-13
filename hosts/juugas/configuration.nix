@@ -22,7 +22,9 @@
       useOSProber = true;
 
       enableCryptodisk = true;
+
     };
+    kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest;
 
     # Setup key-file
     initrd.secrets = {
