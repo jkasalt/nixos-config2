@@ -7,19 +7,19 @@
           org = {
             path = "~/org";
             id = "ade4h-1hu75";
-            devices = [ "phone" ];
+            devices = ["phone"];
             versioning.type = "staggered";
           };
           main = {
             path = "~/Syncthing";
             id = "jd2fc-ypyfg";
-            devices = [ "phone" ];
+            devices = ["phone"];
             versioning.type = "staggered";
           };
           keepass = {
             path = "~/keepass";
             id = "syxug-6z39p";
-            devices = [ "phone" ];
+            devices = ["phone"];
             versioning.type = "staggered";
           };
         };

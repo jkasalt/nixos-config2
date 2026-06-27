@@ -1,6 +1,9 @@
-{inputs, withSystem, ...}:
 {
+  inputs,
+  withSystem,
+  ...
+}: {
   perSystem = {...}: {
-    packages.noctaliaShell = inputs.wrapper-modules.wrappers
+    packages.noctaliaShell = inputs.wrapper-modules.wrappers;
   };
 }

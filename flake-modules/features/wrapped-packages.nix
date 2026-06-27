@@ -1,5 +1,4 @@
-{ inputs, ... }:
-{
+{inputs, ...}: {
   imports = [
     inputs.hm-wrapper-modules.flakeModules.default
     inputs.flake-parts.flakeModules.modules

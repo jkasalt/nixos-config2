@@ -1,7 +1,6 @@
-{ pkgs, ... }:
-{
-  home.packages = [ pkgs.taskwarrior3 ];
-  imports = [ ./shell.nix ];
+{pkgs, ...}: {
+  home.packages = [pkgs.taskwarrior3];
+  imports = [./shell.nix];
 
   home.file.".config/task/taskrc".text = ''
     urgency.user.tag.in.coefficient=15.0

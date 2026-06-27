@@ -1,10 +1,8 @@
-{ pkgs, ... }:
-let
+{pkgs, ...}: let
   gnucash-wrapped =
-    pkgs.runCommand "gnucash" { buildInputs = [ pkgs.makeWrapper ]; }
-      "makeWrapper ${pkgs.gnucash}/bin/gnucash $out/bin/gnucash --set WEBKIT_DISABLE_COMPOSITING_MODE 1";
-in
-{
+    pkgs.runCommand "gnucash" {buildInputs = [pkgs.makeWrapper];}
+    "makeWrapper ${pkgs.gnucash}/bin/gnucash $out/bin/gnucash --set WEBKIT_DISABLE_COMPOSITING_MODE 1";
+in {
   home.packages = with pkgs; [
     htop
     anki-bin

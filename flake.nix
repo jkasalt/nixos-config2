@@ -88,11 +88,13 @@
     };
   };
 
-  outputs =
-    inputs@{ nixpkgs, flake-parts, ... }:
-    flake-parts.lib.mkFlake { inherit inputs; } (
-      _:
-      let
+  outputs = inputs @ {
+    nixpkgs,
+    flake-parts,
+    ...
+  }:
+    flake-parts.lib.mkFlake {inherit inputs;} (
+      _: let
         tree-imports = (inputs.import-tree ./flake-modules).imports;
         other-imports = [
           inputs.home-manager.flakeModules.home-manager
@@ -100,48 +102,47 @@
           ./formatter.nix
         ];
         imports = tree-imports ++ other-imports;
-      in
-      {
+      in {
         inherit imports;
-        systems = [ "x86_64-linux" ];
-        flake =
-          let
-            system = "x86_64-linux";
-            pkgs = import nixpkgs {
-              config = { };
-              overlays = [ ];
+        systems = ["x86_64-linux"];
+        flake = let
+          system = "x86_64-linux";
+          pkgs = import nixpkgs {
+            config = {};
+            overlays = [];
+            inherit system;
+          };
+        in {
+          nixosConfigurations = {
+            juugas = nixpkgs.lib.nixosSystem {
               inherit system;
+              modules = with inputs; [
+                ./hosts/juugas/configuration.nix
+                home-manager.nixosModules.home-manager
+                {
+                  home-manager = {
+                    useGlobalPkgs = true;
+                    useUserPackages = true;
+                    users.lucab = ./hosts/juugas/users/lucab/home-configuration.nix;
+                    backupFileExtension = "bak";
+                    sharedModulinputs.es = [
+                      noctalia.homeModules.default
+                      nixvim.homeModules.nixvim
+                      zen-browser.homeModules.beta
+                    ];
+                  };
+                }
+                {nixpkgs.overlays = [niri.overlays.niri];}
+                {nixpkgs.overlays = [self.overlays.default];}
+                niri.nixosModules.niri
+                stylix.nixosModules.stylix
+              ];
             };
-          in
-          {
-            nixosConfigurations = {
-              juugas = nixpkgs.lib.nixosSystem {
-                inherit system;
-                modules = with inputs; [
-                  ./hosts/juugas/configuration.nix
-                  home-manager.nixosModules.home-manager
-                  {
-                    home-manager = {
-                      useGlobalPkgs = true;
-                      useUserPackages = true;
-                      users.lucab = ./hosts/juugas/users/lucab/home-configuration.nix;
-                      backupFileExtension = "bak";
-                      sharedModulinputs.es = [
-                        noctalia.homeModules.default
-                        nixvim.homeModules.nixvim
-                        zen-browser.homeModules.beta
-                      ];
-                    };
-                  }
-                  { nixpkgs.overlays = [ niri.overlays.niri ]; }
-                  { nixpkgs.overlays = [ self.overlays.default ]; }
-                  niri.nixosModules.niri
-                  stylix.nixosModules.stylix
-                ];
-              };
-            };
-            overlays.default = _final: prev: {
-              vimPlugins = prev.vimPlugins or { } // {
+          };
+          overlays.default = _final: prev: {
+            vimPlugins =
+              prev.vimPlugins or {}
+              // {
                 oasis-nvim = prev.vimUtils.buildVimPlugin {
                   name = "oasis.nvim";
                   src = inputs.oasis-nvim.outPath;
@@ -155,8 +156,8 @@
                   src = inputs.tokusa-nvim.outPath;
                 };
               };
-            };
           };
+        };
       }
     );
 }

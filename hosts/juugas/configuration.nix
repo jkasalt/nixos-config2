@@ -1,8 +1,7 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   imports = [
     ./hardware-configuration.nix
     ../../modules/nixos/shared
@@ -12,7 +11,7 @@
 
   # Bootloader.
   boot = {
-    supportedFilesystems = [ "ntfs" ];
+    supportedFilesystems = ["ntfs"];
     loader.grub = {
       enable = true;
       device = "/dev/nvme0n1";
@@ -26,8 +25,7 @@
       "/boot/crypto_keyfile.bin" = null;
     };
 
-    initrd.luks.devices."luks-fb733a5a-fb2e-4eb8-a9de-a1347b9a1215".keyFile =
-      "/boot/crypto_keyfile.bin";
+    initrd.luks.devices."luks-fb733a5a-fb2e-4eb8-a9de-a1347b9a1215".keyFile = "/boot/crypto_keyfile.bin";
   };
 
   fileSystems."/mnt/bigdisk" = {
@@ -116,8 +114,8 @@
       # needed for obelisk
     };
     settings = {
-      substituters = [ "https://nixcache.reflex-frp.org" ];
-      trusted-public-keys = [ "ryantrinkle.com-1:JJiAKaRv9mWgpVAz8dwewnZe0AzzEAzPkagE9SP5NWI=" ];
+      substituters = ["https://nixcache.reflex-frp.org"];
+      trusted-public-keys = ["ryantrinkle.com-1:JJiAKaRv9mWgpVAz8dwewnZe0AzzEAzPkagE9SP5NWI="];
     };
     gc = {
       automatic = false; # nh already does auto-cleaning

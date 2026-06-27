@@ -1,6 +1,6 @@
 _: {
   # Enable the uinput module
-  boot.kernelModules = [ "uinput" ];
+  boot.kernelModules = ["uinput"];
 
   # Enable uinput
   hardware.uinput.enable = true;
@@ -11,7 +11,7 @@ _: {
   '';
 
   # Ensure the uinput group exists
-  users.groups.uinput = { };
+  users.groups.uinput = {};
 
   # Add the Kanata service user to necessary groups
   systemd.services.kanata-internalKeyboard.serviceConfig = {

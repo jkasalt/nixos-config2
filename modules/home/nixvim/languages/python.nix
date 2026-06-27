@@ -1,5 +1,5 @@
 _: {
   programs.nixvim = {
-    lsp.servers = { };
+    lsp.servers = {};
   };
 }

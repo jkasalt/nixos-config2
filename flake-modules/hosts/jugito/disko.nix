@@ -1,7 +1,10 @@
-{ self, inputs, ... }:
 {
+  self,
+  inputs,
+  ...
+}: {
   flake.nixosModules.jugito-disko = {
-    imports = [ inputs.disko.nixosModules.disko ];
+    imports = [inputs.disko.nixosModules.disko];
 
     fileSystems = {
       "/persist".neededForBoot = true;
@@ -24,7 +27,7 @@
               type = "filesystem";
               format = "vfat";
               mountpoint = "/boot";
-              mountOptions = [ "defaults" ];
+              mountOptions = ["defaults"];
             };
           };
           luks = {

@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   imports = [
     ./languages
     ./plugins
@@ -13,6 +12,6 @@
     withPython3 = false;
     withRuby = false;
     globals.mapleader = " ";
-    extraPlugins = [ pkgs.vimPlugins.miasma-nvim ];
+    extraPlugins = [pkgs.vimPlugins.miasma-nvim];
   };
 }

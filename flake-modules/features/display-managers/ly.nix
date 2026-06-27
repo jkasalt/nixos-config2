@@ -1,8 +1,5 @@
-{ ... }:
-{
-  flake.nixosModules.ly =
-    { ... }:
-    {
-      services.displayManager.enable = true;
-    };
+{...}: {
+  flake.nixosModules.ly = {...}: {
+    services.displayManager.enable = true;
+  };
 }

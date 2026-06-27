@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   imports = [
     ../../../../modules/home/browser.nix
     ../../../../modules/home/git.nix

@@ -1,1 +1,1 @@
-_: { programs.nixvim.plugins.lz-n.enable = true; }
+_: {programs.nixvim.plugins.lz-n.enable = true;}

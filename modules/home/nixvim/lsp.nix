@@ -1,8 +1,6 @@
-{ config, ... }:
-let
+{config, ...}: let
   helpers = config.lib.nixvim;
-in
-{
+in {
   programs.nixvim = {
     lsp = {
       inlayHints.enable = true;

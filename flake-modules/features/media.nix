@@ -1,21 +1,20 @@
-{ moduleWithSystem, ... }:
-{
-  perSystem =
-    { pkgs, ... }:
-    {
-      packages.mpv = pkgs.mpv.override {
-        scripts = with pkgs.mpvScripts; [
-          uosc
-          sponsorblock
-        ];
+{moduleWithSystem, ...}: {
+  perSystem = {pkgs, ...}: {
+    packages.mpv = pkgs.mpv.override {
+      scripts = with pkgs.mpvScripts; [
+        uosc
+        sponsorblock
+      ];
 
-        mpv-unwrapped = pkgs.mpv-unwrapped.override { waylandSupport = true; };
-      };
+      mpv-unwrapped = pkgs.mpv-unwrapped.override {waylandSupport = true;};
     };
+  };
   flake.modules.homeManager.media = moduleWithSystem (
-    { inputs', self', ... }:
-    { pkgs, ... }:
     {
+      inputs',
+      self',
+      ...
+    }: {pkgs, ...}: {
       home.packages = [
         inputs'.curd.packages.default
         pkgs.qbittorrent

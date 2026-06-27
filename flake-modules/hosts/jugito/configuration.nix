@@ -1,1 +1,5 @@
-{ self, inputs, ... }: { }
+{
+  self,
+  inputs,
+  ...
+}: {}

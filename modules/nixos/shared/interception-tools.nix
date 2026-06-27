@@ -1,12 +1,10 @@
-{ pkgs, ... }:
-let
+{pkgs, ...}: let
   intercept = "${pkgs.interception-tools}/bin/intercept";
   uinput = "${pkgs.interception-tools}/bin/uinput";
-in
-{
+in {
   services.interception-tools = {
     enable = true;
-    plugins = with pkgs; [ interception-tools-plugins.caps2esc ];
+    plugins = with pkgs; [interception-tools-plugins.caps2esc];
     udevmonConfig = ''
       - JOB: "${intercept} -g $DEVNODE |
               ${pkgs.interception-tools-plugins.caps2esc}/bin/caps2esc -m 1 |

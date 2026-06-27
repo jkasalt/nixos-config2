@@ -1,6 +1,9 @@
-{ pkgs, lib, ... }:
 {
-  home.packages = with pkgs; [ nil ];
+  pkgs,
+  lib,
+  ...
+}: {
+  home.packages = with pkgs; [nil];
   programs.helix = {
     enable = true;
     settings = {

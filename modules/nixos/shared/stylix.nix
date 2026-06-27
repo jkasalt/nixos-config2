@@ -1,5 +1,8 @@
-{ pkgs, lib, ... }:
-let
+{
+  pkgs,
+  lib,
+  ...
+}: let
   sarnaiTheme = pkgs.writeText "sarnai.yaml" ''
     system: "base16"
     name: "Sarnai"
@@ -25,8 +28,7 @@ let
       base0E: "#d5b3e5"
       base0F: "#f0c3cb"
   '';
-in
-{
+in {
   stylix = {
     enable = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
@@ -42,5 +44,5 @@ in
     targets.qt.platform = lib.mkForce "qtct";
   };
 
-  home-manager.sharedModules = [ { stylix.targets.emacs.enable = false; } ];
+  home-manager.sharedModules = [{stylix.targets.emacs.enable = false;}];
 }

@@ -1,8 +1,10 @@
-{ inputs, self, ... }:
-let
-  pkgs = import inputs.nixpkgs { system = "x86_64-linux"; };
-in
 {
+  inputs,
+  self,
+  ...
+}: let
+  pkgs = import inputs.nixpkgs {system = "x86_64-linux";};
+in {
   flake = {
     nixosModules.lucab = {
       users = {
@@ -13,7 +15,7 @@ in
             "networkmanager"
           ];
         };
-        groups.lucab = { };
+        groups.lucab = {};
       };
     };
 
@@ -21,7 +23,8 @@ in
       inherit pkgs;
       modules =
         builtins.attrValues {
-          inherit (self.modules.homeManager)
+          inherit
+            (self.modules.homeManager)
             git
             shell
             emacs

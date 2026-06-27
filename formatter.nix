@@ -1,6 +1,5 @@
 {
-  perSystem.treefmt.programs.nixfmt = {
+  perSystem.treefmt.programs.alejandra = {
     enable = true;
-    strict = true;
   };
 }
