@@ -6,9 +6,7 @@ in
 {
   services.interception-tools = {
     enable = true;
-    plugins = with pkgs; [
-      interception-tools-plugins.caps2esc
-    ];
+    plugins = with pkgs; [ interception-tools-plugins.caps2esc ];
     udevmonConfig = ''
       - JOB: "${intercept} -g $DEVNODE |
               ${pkgs.interception-tools-plugins.caps2esc}/bin/caps2esc -m 1 |

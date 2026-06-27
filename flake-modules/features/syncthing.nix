@@ -19,7 +19,7 @@
           keepass = {
             path = "~/keepass";
             id = "syxug-6z39p";
-            devices = ["phone"];
+            devices = [ "phone" ];
             versioning.type = "staggered";
           };
         };

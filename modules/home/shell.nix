@@ -10,9 +10,7 @@ let
 in
 {
   options.shell = {
-    shellAliases = mkOption {
-      type = with types; attrsOf str;
-    };
+    shellAliases = mkOption { type = with types; attrsOf str; };
   };
 
   config = {

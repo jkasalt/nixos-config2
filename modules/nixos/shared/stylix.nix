@@ -1,8 +1,4 @@
-{
-  pkgs,
-  lib,
-  ...
-}:
+{ pkgs, lib, ... }:
 let
   sarnaiTheme = pkgs.writeText "sarnai.yaml" ''
     system: "base16"
@@ -46,9 +42,5 @@ in
     targets.qt.platform = lib.mkForce "qtct";
   };
 
-  home-manager.sharedModules = [
-    {
-      stylix.targets.emacs.enable = false;
-    }
-  ];
+  home-manager.sharedModules = [ { stylix.targets.emacs.enable = false; } ];
 }

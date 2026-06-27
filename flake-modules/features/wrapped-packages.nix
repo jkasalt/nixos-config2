@@ -1,5 +1,4 @@
 { inputs, ... }:
-
 {
   imports = [
     inputs.hm-wrapper-modules.flakeModules.default

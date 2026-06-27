@@ -1,3 +1,1 @@
-_: {
-  programs.zen-browser.enable = true;
-}
+_: { programs.zen-browser.enable = true; }

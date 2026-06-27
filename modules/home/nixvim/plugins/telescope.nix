@@ -32,5 +32,4 @@
         (mkKeymap "fb" "buffers")
       ];
   };
-
 }

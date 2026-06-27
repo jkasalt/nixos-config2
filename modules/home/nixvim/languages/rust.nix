@@ -1,3 +1,1 @@
-_: {
-  programs.nixvim.plugins.rustaceanvim.enable = true;
-}
+_: { programs.nixvim.plugins.rustaceanvim.enable = true; }

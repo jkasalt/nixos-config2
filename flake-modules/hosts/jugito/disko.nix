@@ -1,9 +1,7 @@
 { self, inputs, ... }:
 {
   flake.nixosModules.jugito-disko = {
-    imports = [
-      inputs.disko.nixosModules.disko
-    ];
+    imports = [ inputs.disko.nixosModules.disko ];
 
     fileSystems = {
       "/persist".neededForBoot = true;

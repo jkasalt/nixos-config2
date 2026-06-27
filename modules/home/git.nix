@@ -97,6 +97,5 @@
     };
 
     maintenance.enable = true;
-
   };
 }
