@@ -94,7 +94,11 @@
       _:
       let
         tree-imports = (inputs.import-tree ./flake-modules).imports;
-        other-imports = [ inputs.home-manager.flakeModules.home-manager ];
+        other-imports = [
+          inputs.home-manager.flakeModules.home-manager
+          inputs.treefmt-nix.flakeModule
+          ./formatter.nix
+        ];
         imports = tree-imports ++ other-imports;
       in
       {
@@ -136,7 +140,6 @@
                 ];
               };
             };
-            formatter.${system} = pkgs.callPackage ./formatter.nix { inherit (inputs) treefmt-nix; };
             overlays.default = _final: prev: {
               vimPlugins = prev.vimPlugins or { } // {
                 oasis-nvim = prev.vimUtils.buildVimPlugin {
