@@ -1,8 +1,4 @@
-{
-  self,
-  inputs,
-  ...
-}:
+{ self, inputs, ... }:
 {
   flake.nixosConfigurations.jugito = inputs.nixpkgs.lib.nixosSystem {
     modules = builtins.attrValues {
@@ -17,11 +13,7 @@
   };
 
   flake.nixosModules.jugito-base =
-    {
-      pkgs,
-      config,
-      ...
-    }:
+    { pkgs, config, ... }:
     {
       hardware = {
         enableRedistributableFirmware = true;
@@ -82,7 +74,7 @@
         gcc
       ];
 
-      time.timeZone = "Europe/Zurich";
+      time.timeZone = "Asia/Tokyo";
 
       console.keyMap = "fr_CH";
 
@@ -99,6 +91,7 @@
         noto-fonts-color-emoji
         nerd-fonts.symbols-only
         nerd-fonts.intone-mono
+        nerd-fonts.blex-mono
       ];
 
       i18n = {

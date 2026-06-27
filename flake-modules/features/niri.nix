@@ -1,21 +1,13 @@
-{
-  withSystem,
-  inputs,
-  ...
-}:
+{ withSystem, inputs, ... }:
 {
   flake.nixosModules.niri =
-    {
-      pkgs,
-      lib,
-      ...
-    }:
+    { pkgs, lib, ... }:
     {
       security = {
         polkit.enable = true;
         pam.services.login.enableGnomeKeyring = true;
       };
-      environment.systemPackages = [pkgs.nautilus];
+      environment.systemPackages = [ pkgs.nautilus ];
       services.gnome.gnome-keyring.enable = true;
       programs.niri = {
         enable = true;
@@ -38,14 +30,8 @@
         settings =
           let
             noctaliaBin = lib.getExe self'.packages.noctaliaShell;
-            fcitx5Bin = lib.getExe pkgs.fcitx5;
             bash = lib.getExe pkgs.bash;
-            allowWhenLocked =
-              thing: _:
-              (thing { })
-              // {
-                props.allow-when-locked = true;
-              };
+            allowWhenLocked = thing: _: (thing { }) // { props.allow-when-locked = true; };
             spawn = spawn-sh: _: { content.spawn = lib.splitString " " spawn-sh; };
             do = action: _: { content.${action} = _: { }; };
             noctaliaDo = command: _: {
@@ -54,7 +40,10 @@
           in
           {
             prefer-no-csd = _: { };
-            spawn-at-startup = [ noctaliaBin fcitx5Bin ];
+            spawn-at-startup = [
+              noctaliaBin
+              "fcitx5"
+            ];
 
             input = {
               keyboard = {
