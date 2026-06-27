@@ -26,15 +26,21 @@ in
             shell
             emacs
             media
+            passwords
             syncthing
             browser
+            ai
+            anki
+            email
             ;
         }
-        ++ [{
-          home.username = "lucab";
-          home.homeDirectory = "/home/lucab";
-          home.stateVersion = "26.05";
-        }];
+        ++ [
+          {
+            home.username = "lucab";
+            home.homeDirectory = "/home/lucab";
+            home.stateVersion = "26.05";
+          }
+        ];
     };
   };
 }
