@@ -2,6 +2,13 @@
   flake.modules.homeManager.anki = {pkgs, ...}: {
     programs.anki = {
       enable = true;
+      profiles."User 1" = {
+        sync = {
+          autoSync = true;
+          username = "lucabr123@gmail.com";
+          keyFile = "/run/agenix/anki-sync-key";
+        };
+      };
       addons = with pkgs.ankiAddons; [
         review-heatmap
         (fsrs4anki-helper.withConfig {
