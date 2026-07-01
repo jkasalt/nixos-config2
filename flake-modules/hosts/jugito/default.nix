@@ -12,6 +12,7 @@
         jugito-disko
         niri
         lucab
+        secrets
         ;
     };
   };
@@ -27,14 +28,16 @@
     };
 
     boot = {
-      kernelPackages = pkgs.linuxPackages_zen;
+      kernelPackages = pkgs.linuxPackages_latest;
       initrd.luks.devices = {
         cryptroot = {
           device = "/dev/disk/by-partlabel/luks";
           allowDiscards = true;
         };
       };
-      loader.systemd-boot.enable = true;
+      loader = {
+        systemd-boot.enable = true;
+      };
     };
 
     services = {
