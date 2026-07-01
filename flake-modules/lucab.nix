@@ -35,9 +35,11 @@ in {
             ai
             anki
             email
+            niri
             ;
         }
         ++ [
+          inputs.niri.homeModules.config
           {
             home.username = "lucab";
             home.homeDirectory = "/home/lucab";
