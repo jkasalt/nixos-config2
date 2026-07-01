@@ -1,8 +1,4 @@
-{
-  inputs,
-  self,
-  ...
-}: let
+let
   myShell = "zsh";
 in {
   flake.modules.homeManager.shell = {...}: {
@@ -12,12 +8,5 @@ in {
     };
 
     programs.${myShell}.enable = true;
-  };
-
-  perSystem = {pkgs, ...}: {
-    hmWrappers.programs.shell = {
-      mainPackage = pkgs.${myShell};
-      homeModules = [self.modules.homeManager.shell];
-    };
   };
 }
