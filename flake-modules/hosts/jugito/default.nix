@@ -48,7 +48,7 @@
       };
       upower.enable = true;
       tlp = {
-        enable = true;
+        enable = false;
         settings = {
           START_CHARGE_THRESH_BAT0 = 75;
           STOP_CHARGE_THRESH_BAT0 = 85;
@@ -101,6 +101,8 @@
       nerd-fonts.symbols-only
       nerd-fonts.intone-mono
       nerd-fonts.blex-mono
+      nerd-fonts.caskaydia-cove
+      nerd-fonts.jetbrains-mono
     ];
 
     i18n = {
