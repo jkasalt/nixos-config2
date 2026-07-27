@@ -13,7 +13,21 @@
         niri
         lucab
         secrets
+        autoUpgrade
         ;
+    };
+  };
+
+  flake.nixosModules.autoUpgrade = {
+    system.autoUpgrade = {
+      enable = true;
+      flake = "~/nixos-config2";
+      flags = [
+        "--print-build-logs"
+        "--commit-lock-file"
+      ];
+      dates = "02:00";
+      randomizedDelaySec = "45min";
     };
   };
 
@@ -64,7 +78,7 @@
         enable = true;
         clean.enable = true;
         clean.extraArgs = "--keep 5 --keep-since 14d";
-        flake = config.networking.hostName;
+        flake = "~/nixos-config2";
       };
       direnv.enable = true;
     };
@@ -78,7 +92,6 @@
       vim
       git
       helix
-      inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
       brightnessctl
       gcc
     ];
