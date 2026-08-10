@@ -14,6 +14,7 @@
         lucab
         secrets
         autoUpgrade
+        steam
         ;
     };
   };
