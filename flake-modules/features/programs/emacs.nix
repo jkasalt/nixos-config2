@@ -12,7 +12,7 @@
         epkgs.treesit-grammars.with-all-grammars
       ];
     };
-    services.emacs.enable = true;
+    services.emacs.enable = false; # for some reason, client can't find daemon
     home.packages = with pkgs; [
       ripgrep
       nil # nix lsp
