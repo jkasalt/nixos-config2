@@ -42,23 +42,23 @@
 
       screenshot-path = "~/Pictures/Screenshots/Screenshot-%Y-%m-%dT%H-%M-%S.png";
 
-      switch-events.lid-close.action.spawn = ["noctalia" "msg" "session" "lock-and-suspend"];
+      switch-events.lid-close.action.spawn = ["dms" "ipc" "lock" "lock"];
 
       binds = {
         "Mod+Return".action.spawn = lib.getExe pkgs.kitty;
-        # "Mod+S" = noctaliaDo "panel-toggle launcher";
+        "Mod+S".action.spawn = ["dms" "ipc" "launcher" "toggle"];
         "Mod+Shift+E".action.quit = {};
         "Mod+M".action.maximize-column = {};
         "Mod+Shift+H".action.show-hotkey-overlay = {};
         "Mod+Q".action.close-window = {};
-        # "Mod+L" = noctaliaDo "session lock";
+        "Mod+L".action.spawn = ["dms" "ipc" "lock" "lock"];
 
         Print.action.screenshot = {};
         "Ctrl+Print".action.screenshot-screen = {};
         "Alt+Print".action.screenshot-window = {};
 
-        # XF86AudioRaiseVolume = allowWhenLocked (noctaliaDo "volume-up 5");
-        # XF86AudioLowerVolume = allowWhenLocked (noctaliaDo "volume-down 5");
+        XF86AudioRaiseVolume.action.spawn = ["dms" "ipc" "audio" "increment" "5"];
+        XF86AudioLowerVolume.action.spawn = ["dms" "ipc" "audio" "decrement" "5"];
         XF86AudioMute = allowWhenLocked {action.spawn = ["wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"];};
         XF86AudioMicMute = allowWhenLocked {action.spawn = ["wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"];};
         XF86AudioPlay = allowWhenLocked {action.spawn = ["playerctl" "play-pause"];};
