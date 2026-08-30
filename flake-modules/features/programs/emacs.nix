@@ -1,15 +1,20 @@
-{
+{inputs, ...}: {
   flake.modules.homeManager.emacs = {
     pkgs,
     lib,
     ...
   }: {
-    programs.emacs = {
+    imports = [
+      inputs.nix-doom-emacs-unstraightened.homeModule
+    ];
+    programs.doom-emacs = {
       enable = true;
-      package = pkgs.emacs-pgtk;
+      emacs = pkgs.emacs-pgtk;
+      doomDir = ./doom;
       extraPackages = epkgs: [
         epkgs.vterm
         epkgs.treesit-grammars.with-all-grammars
+        epkgs.tree-sitter-langs
       ];
     };
     services.emacs.enable = false; # for some reason, client can't find daemon
