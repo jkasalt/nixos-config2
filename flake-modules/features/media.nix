@@ -18,6 +18,7 @@
       home.packages = [
         inputs'.curd.packages.default
         pkgs.qbittorrent
+        pkgs.zathura
       ];
 
       programs.mpv = {
