@@ -11,6 +11,8 @@
       };
       addons = with pkgs.ankiAddons; [
         review-heatmap
+        anki-connect
+        passfail2
         (fsrs4anki-helper.withConfig {
           config = {
             auto_reschedule_after_sync = true;
