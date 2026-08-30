@@ -15,6 +15,7 @@
         secrets
         autoUpgrade
         steam
+        comma
         ;
     };
   };
