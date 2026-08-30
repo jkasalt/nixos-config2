@@ -107,10 +107,13 @@
 
     system.stateVersion = "25.11";
 
-    nix.settings.extra-experimental-features = [
-      "flakes"
-      "nix-command"
-    ];
+    nix.settings = {
+      extra-experimental-features = [
+        "flakes"
+        "nix-command"
+      ];
+      auto-optimise-store = true;
+    };
 
     fonts.packages = with pkgs; [
       noto-fonts
