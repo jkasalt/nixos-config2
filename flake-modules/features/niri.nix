@@ -17,12 +17,9 @@
   in {
     imports = [inputs.niri.homeModules.niri];
     programs.niri.package = pkgs.niri;
+
     programs.niri.settings = {
       prefer-no-csd = true;
-
-      spawn-at-startup = [
-        {argv = ["fcitx5"];}
-      ];
 
       input = {
         keyboard = {

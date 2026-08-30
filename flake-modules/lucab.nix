@@ -27,7 +27,6 @@ in {
             (self.modules.homeManager)
             git
             shell
-            emacs
             media
             passwords
             syncthing
@@ -36,6 +35,8 @@ in {
             anki
             email
             niri
+            fcitx5
+            emacs
             ;
         }
         ++ [
