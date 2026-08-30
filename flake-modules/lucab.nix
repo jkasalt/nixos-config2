@@ -7,9 +7,11 @@
 in {
   flake = {
     nixosModules.lucab = {
+      programs.zsh.enable = true;
       users = {
         users.lucab = {
           isNormalUser = true;
+          shell = pkgs.zsh;
           extraGroups = [
             "wheel"
             "networkmanager"
