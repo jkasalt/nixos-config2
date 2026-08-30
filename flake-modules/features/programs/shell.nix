@@ -13,6 +13,7 @@ in {
           "$aws"
           "$azure"
           "$gcloud"
+          "\n"
           "$username"
           "$hostname"
           "$directory"
@@ -31,7 +32,8 @@ in {
         ];
 
         aws = {
-          format = "[$symbol($profile) \(($region)\) ($duration)]($style)";
+          symbol = "☁ ";
+          format = "[$symbol($profile) \(($region)\) ($duration)]($style) ";
         };
 
         directory = {
