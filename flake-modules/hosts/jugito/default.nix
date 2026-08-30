@@ -17,6 +17,7 @@
         steam
         comma
         fcitx5
+        # dns-over-tls
         ;
     };
   };
@@ -127,5 +128,18 @@
     ];
 
     i18n.defaultLocale = "en_US.UTF-8";
+  };
+
+  flake.nixosModules.dns-over-tls = {
+    networking.nameservers = ["1.1.1.1#cloudflare-dns.com" "9.9.9.9#dns.quad9.net"];
+    services.resolved = {
+      enable = true;
+      settings.Resolve = {
+        DNSOverTLS = "opportunistic";
+        DNSSEC = true;
+        Domains = ["~."];
+        FallbackDNS = ["1.1.1.1" "9.9.9.9"];
+      };
+    };
   };
 }
