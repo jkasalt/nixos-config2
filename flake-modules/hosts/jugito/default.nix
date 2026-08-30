@@ -98,6 +98,7 @@
       helix
       brightnessctl
       gcc
+      adwaita-icon-theme
     ];
 
     time.timeZone = "Asia/Tokyo";
