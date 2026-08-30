@@ -87,6 +87,7 @@
     };
 
     networking = {
+      firewall.allowedTCPPorts = [3000]; # For development with lynxJS
       hostName = "jugito";
       networkmanager.enable = true;
     };
