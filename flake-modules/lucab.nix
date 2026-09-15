@@ -39,6 +39,7 @@ in {
             niri
             fcitx5
             emacs
+            clojure
             jujutsu
             ;
         }

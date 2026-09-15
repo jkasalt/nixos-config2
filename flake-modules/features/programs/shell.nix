@@ -94,4 +94,14 @@
 
     programs.zsh.enable = true;
   };
+  flake.modules.homeManager.clojure = {pkgs, ...}: {
+    home.packages = with pkgs; [
+      jdk
+      clojure
+      leiningen
+      clojure-lsp
+      clj-kondo
+      cljfmt
+    ];
+  };
 }
