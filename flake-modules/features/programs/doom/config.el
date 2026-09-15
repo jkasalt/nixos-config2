@@ -58,7 +58,10 @@
     (interactive (list (org-read-date t t)))
     (cl-letf (((symbol-function 'current-time) (lambda () time)))
       (org-todo 'done))
-    ))
+    )
+  (require 'org-clock-reminder)
+  (org-clock-reminder-mode)
+  (setq org-clock-reminder-inactive-notifications-p t))
 
 (use-package! mozc
   :config

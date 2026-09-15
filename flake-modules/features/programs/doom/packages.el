@@ -13,6 +13,9 @@
 ;; To install SOME-PACKAGE from MELPA, ELPA or emacsmirror:
 ;; (package! some-package)
 (package! zenburn-theme)
+(package! org-clock-reminder
+  :recipe (:host "github" :repo "inickey/org-clock-reminder")
+  :pin "d3bf97113fd519aa08198e2283ba9c236a6df168")
 (package! mozc)
 
 (package! calibredb)
