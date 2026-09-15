@@ -79,6 +79,13 @@
       networkmanager.enable = true;
     };
 
+    # Some hosts (e.g. Infomaniak's mail servers) advertise AAAA records
+    # whose IPv6 endpoints aren't actually reachable here; isync/mbsync has
+    # no Happy Eyeballs, so it dials each address in order and hangs on
+    # both IPv6 addresses before falling back to IPv4. Deprioritizing IPv6
+    # in glibc's address selection (without disabling it) skips that.
+    environment.etc."gai.conf".text = "precedence ::ffff:0:0/96  100\n";
+
     environment.systemPackages = with pkgs; [
       vim
       git
