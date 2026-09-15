@@ -2,7 +2,25 @@
   inputs,
   self,
   ...
-}: {
+}: let
+  user = {
+    email = "lucabr123@gmail.com";
+    name = "Luca Bracone";
+  };
+in {
+  flake.modules.homeManager.jujutsu = {
+    programs.difftastic = {
+      enable = true;
+      jujutsu.enable = true;
+    };
+
+    programs.jujutsu = {
+      enable = true;
+      settings = {
+        inherit user;
+      };
+    };
+  };
   flake.modules.homeManager.git = {...}: {
     programs.difftastic = {
       enable = true;
@@ -11,10 +29,7 @@
     programs.git = {
       enable = true;
       settings = {
-        user = {
-          email = "lucabr123@gmail.com";
-          name = "Luca Bracone";
-        };
+        inherit user;
         branch.sort = "-committerdate";
         column.ui = "auto";
         alias = let
