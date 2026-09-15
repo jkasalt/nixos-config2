@@ -17,7 +17,7 @@
     }: {pkgs, ...}: {
       home.packages = [
         inputs'.curd.packages.default
-        pkgs.qbittorrent
+        pkgs.qbittorrent-enhanced
         pkgs.zathura
       ];
 
