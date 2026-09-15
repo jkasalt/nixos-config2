@@ -1,9 +1,15 @@
-let
-  myShell = "zsh";
-in {
-  flake.modules.homeManager.shell = {lib, ...}: {
+{
+  flake.modules.homeManager.shell = {
+    pkgs,
+    lib,
+    ...
+  }: {
     home.sessionVariables = {
       AWS_PROFILE = "portfolio";
+    };
+    programs.zoxide = {
+      enable = true;
+      enableZshIntegration = true;
     };
     programs.starship = {
       enable = true;
@@ -86,6 +92,6 @@ in {
       };
     };
 
-    programs.${myShell}.enable = true;
+    programs.zsh.enable = true;
   };
 }
