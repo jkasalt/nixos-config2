@@ -22,6 +22,8 @@
   :recipe (:host "github" :repo "inickey/org-clock-reminder")
   :pin "d3bf97113fd519aa08198e2283ba9c236a6df168")
 (package! mozc)
+(package! org-pomodoro)
+(package! majutsu)
 
 (package! calibredb)
 (package! nov)
