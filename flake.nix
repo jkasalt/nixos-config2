@@ -78,7 +78,7 @@
 
     flake-parts.url = "github:hercules-ci/flake-parts";
 
-    import-tree.url = "github:vic/import-tree";
+    import-tree.url = "github:denful/import-tree";
 
     curd = {
       url = "github:wraient/curd";
@@ -87,6 +87,7 @@
 
     nix-doom-emacs-unstraightened = {
       url = "github:marienz/nix-doom-emacs-unstraightened";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
@@ -97,7 +98,7 @@
   }:
     flake-parts.lib.mkFlake {inherit inputs;} (
       _: let
-        tree-imports = (inputs.import-tree ./flake-modules).imports;
+        tree-imports = (inputs.import-tree ./flake-modules {}).imports;
         other-imports = [
           inputs.home-manager.flakeModules.home-manager
           inputs.treefmt-nix.flakeModule
