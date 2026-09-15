@@ -41,6 +41,7 @@ in {
             emacs
             clojure
             jujutsu
+            stylix
             ;
         }
         ++ [
