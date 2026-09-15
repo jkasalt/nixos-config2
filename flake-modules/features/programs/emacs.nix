@@ -16,6 +16,20 @@
         epkgs.treesit-grammars.with-all-grammars
         epkgs.tree-sitter-langs
         (epkgs.melpaBuild {
+          pname = "south-theme";
+          version = "0.1";
+          packageRequires = with epkgs; [
+            magit-section
+            autothemer
+          ];
+          src = pkgs.fetchFromGitHub {
+            owner = "SophieBosio";
+            repo = "south";
+            rev = "5c1bb971b97ad0ba6e56570db6479fadfd62e611";
+            hash = "sha256-y035sT5pn5cIuyHb047mOzMdok6lIS/J3DTrt/yo1MI=";
+          };
+        })
+        (epkgs.melpaBuild {
           pname = "org-clock-reminder";
           version = "0.1";
           packageRequires = [];
