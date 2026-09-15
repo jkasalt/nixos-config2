@@ -1,8 +1,12 @@
 {inputs, ...}: {
   flake.nixosModules.niri = {pkgs, ...}: {
-    security.pam.services.login.enableGnomeKeyring = true;
     environment.systemPackages = [pkgs.nautilus];
     programs.niri.enable = true;
+    # niri's module defaults this to true (upstream-recommended, for portal
+    # support) and it in turn force-enables pam_gnome_keyring on the "login"
+    # PAM service, which grabs org.freedesktop.secrets before KeePassXC's
+    # own Secret Service integration gets a chance to.
+    services.gnome.gnome-keyring.enable = false;
     programs.dms-shell = {
       enable = true;
     };
