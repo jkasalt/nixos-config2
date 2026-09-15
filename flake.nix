@@ -105,17 +105,11 @@
           ./formatter.nix
         ];
         imports = tree-imports ++ other-imports;
+        system = "x86_64-linux";
       in {
         inherit imports;
-        systems = ["x86_64-linux"];
-        flake = let
-          system = "x86_64-linux";
-          pkgs = import nixpkgs {
-            config = {};
-            overlays = [];
-            inherit system;
-          };
-        in {
+        systems = [system];
+        flake = {
           nixosConfigurations = {
             juugas = nixpkgs.lib.nixosSystem {
               inherit system;
