@@ -20,6 +20,7 @@
     allowWhenLocked = bind: bind // {allow-when-locked = true;};
   in {
     imports = [inputs.niri.homeModules.niri];
+    programs.kitty.enable = true;
     programs.niri.package = pkgs.niri;
 
     programs.niri.settings = {
