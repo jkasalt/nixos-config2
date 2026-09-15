@@ -54,6 +54,7 @@
         "Mod+Shift+H".action.show-hotkey-overlay = {};
         "Mod+Q".action.close-window = {};
         "Mod+L".action.spawn = ["dms" "ipc" "lock" "lock"];
+        "Mod+Shift+T".action.spawn = ["dms" "ipc" "theme" "toggle"];
 
         Print.action.screenshot = {};
         "Ctrl+Print".action.screenshot-screen = {};
