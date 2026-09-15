@@ -18,8 +18,9 @@
       home.packages = [
         inputs'.curd.packages.default
         pkgs.qbittorrent-enhanced
-        pkgs.zathura
       ];
+
+      programs.zathura.enable = true;
 
       programs.mpv = {
         enable = true;
