@@ -21,10 +21,13 @@
         };
       };
 
-      # Requires KeePassXC secret service enabled. On the Infomaniak mail entry,
-      # add a custom attribute "type" = "imap" to disambiguate from other entries
-      # that share the same username.
-      passwordCommand = "secret-tool lookup username luca.bracone@ik.me type imap";
+      # Requires KeePassXC's Secret Service integration enabled and the entry's
+      # group exposed (Database Settings > Secret Service Integration). On the
+      # Infomaniak mail entry, add a custom attribute "type" = "imap" to
+      # disambiguate from other entries that share the same username.
+      # Note: KeePassXC exposes the username field as "UserName" (capitalized),
+      # not "username" -- that's fixed by KeePassXC, not our choice.
+      passwordCommand = "secret-tool lookup UserName luca.bracone@ik.me type imap";
 
       mbsync = {
         enable = true;
