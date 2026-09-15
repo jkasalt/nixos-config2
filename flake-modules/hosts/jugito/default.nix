@@ -13,25 +13,11 @@
         niri
         lucab
         secrets
-        autoUpgrade
         steam
         comma
         fcitx5
         # dns-over-tls
         ;
-    };
-  };
-
-  flake.nixosModules.autoUpgrade = {
-    system.autoUpgrade = {
-      enable = true;
-      flake = "~/nixos-config2";
-      flags = [
-        "--print-build-logs"
-        "--commit-lock-file"
-      ];
-      dates = "02:00";
-      randomizedDelaySec = "45min";
     };
   };
 
