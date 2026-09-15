@@ -80,7 +80,7 @@
       layout = {
         gaps = 0;
         center-focused-column = "on-overflow";
-        default-column-width.proportion = 0.5;
+        default-column-width.proportion = 1.0;
         focus-ring = {
           width = 1;
           active.color = "#7fc8ff";
