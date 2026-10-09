@@ -43,6 +43,7 @@ in {
             clojure
             jujutsu
             stylix
+            beancount
             ;
         }
         ++ [
