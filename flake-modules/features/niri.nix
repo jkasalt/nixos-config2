@@ -47,7 +47,7 @@
       switch-events.lid-close.action.spawn = ["dms" "ipc" "lock" "lock"];
 
       binds = {
-        "Mod+Return".action.spawn = lib.getExe pkgs.kitty;
+        "Mod+Return".action.spawn = "$TERM";
         "Mod+S".action.spawn = ["dms" "ipc" "launcher" "toggle"];
         "Mod+Shift+E".action.quit = {};
         "Mod+M".action.maximize-column = {};
