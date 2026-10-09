@@ -132,3 +132,34 @@
                       (user-mail-address      . "luca.bracone@ik.me")
                       (mu4e-compose-signature . "Luca Bracone"))
                     t)
+
+(after! ledger-mode
+  (setq ledger-binary-path "hledger"
+        ledger-mode-should-check-version nil
+        ledger-report-auto-width nil
+        ledger-report-links-in-register nil
+        ledger-report-native-highlighting-arguments '("--color=always")
+        ledger-reports '(("bal"     "%(binary) -f %(ledger-file) bal")
+                         ("reg"     "%(binary) -f %(ledger-file) reg")
+                         ("payee"   "%(binary) -f %(ledger-file) reg payee:%(payee)")
+                         ("account" "%(binary) -f %(ledger-file) reg %(account)")
+                         ("bs"      "%(binary) -f %(ledger-file) bs")
+                         ("is"      "%(binary) -f %(ledger-file) is")
+                         ("cf"      "%(binary) -f %(ledger-file) cf"))
+        ledger-post-amount-alignment-column 64)
+  (add-to-list 'auto-mode-alist '("\\.\\(journal\\|hledger\\)\\'" . ledger-mode))
+  (add-to-list 'auto-mode-alist '("\\.rules\\'" . conf-mode))
+  (add-hook 'ledger-mode-hook #'auto-revert-tail-mode))
+
+(use-package! hledger-mode
+  :mode ("\\.journal\\'" "\\.hledger\\'")
+  :preface
+  (defun my/hledger-completion-accounts ()
+    (when-let ((bounds (and (boundp 'hledger-accounts-cache)
+                            (bounds-of-thing-at-point 'symbol))))
+      (list (car bounds) (point) hledger-accounts-cache)))
+  (defun my/hledger-setup-capf ()
+    (add-hook 'completion-at-point-functions
+              #'my/hledger-completion-accounts nil t))
+  ;; :hook (hledger-mode . my/hledger-setup-capf)
+  )

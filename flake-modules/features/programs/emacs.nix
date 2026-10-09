@@ -51,6 +51,7 @@
       sqlite
       calibre
       unzip
+      hledger
     ];
   };
 }
