@@ -119,7 +119,24 @@
       nerd-fonts.blex-mono
       nerd-fonts.caskaydia-cove
       nerd-fonts.jetbrains-mono
+      nerd-fonts.fira-code
     ];
+
+    fonts.fontconfig.localConf = ''
+  <match target="font">
+    <test name="family" compare="contains">
+      <string>FiraCode Nerd Font</string>
+    </test>
+    <edit name="fontfeatures" mode="append">
+      <string>ss09</string>
+      <string>cv25</string>
+      <string>cv26</string>
+      <string>cv32</string>
+      <string>zero</string>
+      <string>onum</string>
+    </edit>
+  </match>
+'';
 
     i18n.defaultLocale = "en_US.UTF-8";
   };
