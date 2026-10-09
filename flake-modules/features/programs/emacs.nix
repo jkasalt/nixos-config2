@@ -42,7 +42,10 @@
         })
       ];
     };
-    services.emacs.enable = false; # for some reason, client can't find daemon
+    services.emacs = {
+      enable = true;
+      client.enable = true;
+    };
     home.packages = with pkgs; [
       ripgrep
       nil # nix lsp
