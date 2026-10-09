@@ -63,10 +63,17 @@
   (org-clock-reminder-mode)
   (setq org-clock-reminder-inactive-notifications-p t))
 
-(use-package! mozc
-  :config
-  (setq default-input-method "japanese-mozc")
-  )
+;; Removing orgmode binding to let skk have precedence
+(map! :after evil-org
+      :map evil-org-mode-map
+      :i "C-j" nil
+      :i "C-k" nil)
+
+(after! skk
+  (setq skk-large-jisyo "~/.nix-profile/share/skk/SKK-JISYO.L"
+        skk-egg-like-newline t
+        skk-dcomp-activate t
+        skk-sticky-key "é"))
 
 (global-auto-revert-mode 1)
 (setq auto-revert-use-notify t

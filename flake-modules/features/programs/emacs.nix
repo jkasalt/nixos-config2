@@ -47,7 +47,7 @@
       ripgrep
       nil # nix lsp
       cmigemo # for searching japanese buffers with romaji
-      mozc-ut # for japanese input
+      skkDictionaries.l
       sqlite
       calibre
       unzip
