@@ -94,14 +94,27 @@
 
     programs.zsh.enable = true;
   };
-  flake.modules.homeManager.clojure = {pkgs, ...}: {
+  flake.modules.homeManager.programming = {pkgs, ...}: {
     home.packages = with pkgs; [
+      # clojure
       jdk
       clojure
-      leiningen
       clojure-lsp
       clj-kondo
       cljfmt
+
+      # haskell
+      cabal-install
+      ghc
+      ormolu
+      haskell-language-server
+
+      # rust
+      rustc
+      rust-analyzer
+      cargo
+      clippy
+      rustfmt
     ];
   };
 }

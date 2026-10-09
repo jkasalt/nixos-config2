@@ -40,7 +40,7 @@ in {
             niri
             fcitx5
             emacs
-            clojure
+            programming
             jujutsu
             stylix
             beancount
