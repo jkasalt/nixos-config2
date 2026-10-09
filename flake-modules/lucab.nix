@@ -19,6 +19,7 @@ in {
         };
         groups.lucab = {};
       };
+      nix.settings.trusted-users = ["lucab"];
     };
 
     homeConfigurations.lucab = inputs.home-manager.lib.homeManagerConfiguration {
