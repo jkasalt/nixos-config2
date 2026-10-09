@@ -161,20 +161,5 @@
       enableExcludeWrapper = false;
     };
     environment.systemPackages = with pkgs; [mullvad-compass];
-
-    systemd.services.mullvad-enforce-settings = {
-      description = "Enforce Mullvad lockdown mode and auto-connect";
-      after = ["mullvad-daemon.service"];
-      requires = ["mullvad-daemon.service"];
-      wantedBy = ["multi-user.target"];
-      serviceConfig = {
-        Type = "oneshot";
-        RemainAfterExit = true;
-        ExecStart = [
-          "${pkgs.mullvad}/bin/mullvad lockdown-mode set on"
-          "${pkgs.mullvad}/bin/mullvad auto-connect set on"
-        ];
-      };
-    };
   };
 }
