@@ -60,8 +60,7 @@
       (org-todo 'done))
     )
   (require 'org-clock-reminder)
-  (org-clock-reminder-mode)
-  (setq org-clock-reminder-inactive-notifications-p t))
+  (org-clock-reminder-mode))
 
 ;; Removing orgmode binding to let skk have precedence
 (map! :after evil-org
@@ -85,17 +84,13 @@
   (setq calibredb-root-dir "~/Syncthing/Books")
   (setq calibredb-db-dir (expand-file-name "metadata.db" calibredb-root-dir))
   (setq calibredb-library-alist
-        '(
-          ("~/Syncthing/Books" (name . "Calibre"))
+        '(("~/Syncthing/Books" (name . "Calibre"))
           ("http://arxiv.maplepop.com/catalog/" (name . "arxiv"))
-          ("https://m.gutenberg.org/ebooks.opds/" (name . "Gutenberg"))
-          )
-        )
+          ("https://m.gutenberg.org/ebooks.opds/" (name . "Gutenberg"))))
   (setq calibredb-format-nerd-icons t)
   (map! :map calibredb-search-mode-map
-        :n "RET" #'calibredb-find-file
-        :n "/" #'calibredb-search-live-filter)
-  )
+        :n "RET" #'calibredb-open-file-with-default-tool
+        :n "/" #'calibredb-search-live-filter))
 
 (defun my/nov-setup ()
   (visual-line-mode 1)
@@ -163,3 +158,6 @@
               #'my/hledger-completion-accounts nil t))
   ;; :hook (hledger-mode . my/hledger-setup-capf)
   )
+
+(use-package! rainbow-delimiters
+  :hook (prog-mode . rainbow-delimiters-mode))

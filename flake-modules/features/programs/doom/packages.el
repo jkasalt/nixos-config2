@@ -23,7 +23,7 @@
 (package! mozc)
 (package! org-pomodoro)
 (package! majutsu)
-
+(package! rainbow-delimiters)
 (package! calibredb)
 (package! nov)
 (package! hledger-mode)
