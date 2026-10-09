@@ -44,6 +44,7 @@ in {
             jujutsu
             stylix
             beancount
+            ocaml
             ;
         }
         ++ [
