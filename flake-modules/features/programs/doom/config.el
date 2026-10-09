@@ -30,13 +30,13 @@
 ;; wasn't installed correctly. Font issues are rarely Doom issues!
 
 (setq doom-font-increment 1
-      doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 15 :weight 'regular)
+      doom-font (font-spec :family "BlexMono Nerd Font" :size 15 :weight 'regular)
       )
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-;; (setq doom-theme 'doom-nord)
+(setq doom-theme 'doom-zenburn)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.

@@ -13,7 +13,6 @@
 ;; To install SOME-PACKAGE from MELPA, ELPA or emacsmirror:
 ;; (package! some-package)
 (package! ef-themes)
-(package! doric-themes)
 (package! kaolin-themes)
 (package! south-theme
   :recipe (:host "github" :repo "SophieBosio/south")
