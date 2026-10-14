@@ -12,6 +12,7 @@
 
 ;; To install SOME-PACKAGE from MELPA, ELPA or emacsmirror:
 ;; (package! some-package)
+(package! modus-themes) ; >= 5.0, needed by themes/vscode-light-plus-theme.el
 (package! ef-themes)
 (package! kaolin-themes)
 (package! south-theme
