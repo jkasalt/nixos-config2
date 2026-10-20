@@ -4,7 +4,6 @@
       home.packages = with pkgs; [
         beancount
         fava
-        inputs'.rustledger.packages.rustledger
       ];
     }
   );
