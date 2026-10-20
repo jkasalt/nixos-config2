@@ -89,6 +89,16 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    au-themes = {
+      url = "github:szymonwilczek/au-themes";
+      flake = false;
+    };
+
+    south-theme = {
+      url = "github:SophieBosio/south";
+      flake = false;
+    };
+
     flatpaks.url = "github:in-a-dil-emma/declarative-flatpak/latest";
   };
 

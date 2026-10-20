@@ -20,6 +20,22 @@
         "type": "github"
       }
     },
+    "au-themes": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1792194425,
+        "narHash": "sha256-M3FYURCqhbllRAL5/JBv95U44ZuvnWoX5FQ216rq1e4=",
+        "owner": "szymonwilczek",
+        "repo": "au-themes",
+        "rev": "b4d66b50ab1fa48eccef33551e355e658e9c5a7a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "szymonwilczek",
+        "repo": "au-themes",
+        "type": "github"
+      }
+    },
     "base16": {
       "inputs": {
         "fromYaml": "fromYaml"
@@ -632,6 +648,7 @@
     "root": {
       "inputs": {
         "agenix": "agenix",
+        "au-themes": "au-themes",
         "curd": "curd",
         "disko": "disko",
         "firefox-addons": "firefox-addons",
@@ -647,10 +664,27 @@
         "nixvim": "nixvim",
         "noctalia": "noctalia",
         "oasis-nvim": "oasis-nvim",
+        "south-theme": "south-theme",
         "stylix": "stylix",
         "tokusa-nvim": "tokusa-nvim",
         "treefmt-nix": "treefmt-nix",
         "zen-browser": "zen-browser"
+      }
+    },
+    "south-theme": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1788260223,
+        "narHash": "sha256-y035sT5pn5cIuyHb047mOzMdok6lIS/J3DTrt/yo1MI=",
+        "owner": "SophieBosio",
+        "repo": "south",
+        "rev": "5c1bb971b97ad0ba6e56570db6479fadfd62e611",
+        "type": "github"
+      },
+      "original": {
+        "owner": "SophieBosio",
+        "repo": "south",
+        "type": "github"
       }
     },
     "stylix": {
