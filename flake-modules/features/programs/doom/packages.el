@@ -18,6 +18,9 @@
 (package! south-theme
   :recipe (:host "github" :repo "SophieBosio/south")
   :pin "5c1bb971b97ad0ba6e56570db6479fadfd62e611")
+(package! au-themes
+  :recipe (:host "github" :repo "szymonwilczek/au-themes")
+  :pin "b4d66b50ab1fa48eccef33551e355e658e9c5a7a")
 (package! mozc)
 (package! org-pomodoro)
 (package! majutsu)

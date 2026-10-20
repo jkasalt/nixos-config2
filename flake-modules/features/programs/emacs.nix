@@ -16,6 +16,19 @@
         epkgs.treesit-grammars.with-all-grammars
         epkgs.tree-sitter-langs
         (epkgs.melpaBuild {
+          pname = "au-themes";
+          version = "0.1";
+          packageRequires = with epkgs; [
+            ef-themes
+          ];
+          src = pkgs.fetchFromGitHub {
+            owner = "szymonwilczek";
+            repo = "au-themes";
+            rev = "b4d66b50ab1fa48eccef33551e355e658e9c5a7a";
+            hash = "sha256-M3FYURCqhbllRAL5/JBv95U44ZuvnWoX5FQ216rq1e4=";
+          };
+        })
+        (epkgs.melpaBuild {
           pname = "south-theme";
           version = "0.1";
           packageRequires = with epkgs; [
