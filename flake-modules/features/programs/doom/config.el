@@ -160,6 +160,13 @@
 (use-package! rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
 
+;; vterm is already enabled in init.el; claude-code defaults to eat.
+(use-package! claude-code
+  :config
+  (setq claude-code-terminal-backend 'vterm)
+  (claude-code-mode)
+  (map! :leader :desc "Claude Code" "o c" claude-code-command-map))
+
 ;; Common Lisp: start SLY through qlot so the project-local Quicklisp is loaded
 ;; (needed by slynk-quicklisp). Pick plain sbcl with `M-- M-x sly'.
 (after! sly

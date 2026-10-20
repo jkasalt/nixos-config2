@@ -89,6 +89,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    claude-code-el = {
+      url = "github:stevemolitor/claude-code.el";
+      flake = false;
+    };
+
     au-themes = {
       url = "github:szymonwilczek/au-themes";
       flake = false;

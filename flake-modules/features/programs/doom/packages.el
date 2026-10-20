@@ -19,6 +19,8 @@
   :recipe (:host "github" :repo "SophieBosio/south"))
 (package! au-themes
   :recipe (:host "github" :repo "szymonwilczek/au-themes"))
+(package! claude-code
+  :recipe (:host "github" :repo "stevemolitor/claude-code.el"))
 (package! mozc)
 (package! org-pomodoro)
 (package! majutsu)

@@ -38,6 +38,17 @@
           ];
           src = inputs.south-theme;
         };
+        # Not the MELPA `claude-code', which is a different package
+        # (yuya373/claude-code-emacs).
+        claude-code = esuper.melpaBuild {
+          pname = "claude-code";
+          version = "0.4.5";
+          packageRequires = with eself; [
+            transient
+            inheritenv
+          ];
+          src = inputs.claude-code-el;
+        };
       };
     };
     services.emacs = {

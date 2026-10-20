@@ -104,6 +104,22 @@
         "type": "github"
       }
     },
+    "claude-code-el": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1777579222,
+        "narHash": "sha256-5QJrWIu4EgnHcOqMwlrs2JBBx7aI9OaSJswesr6Apfk=",
+        "owner": "stevemolitor",
+        "repo": "claude-code.el",
+        "rev": "03199df8b3a1e9cd4857f0851f7a912ba524aff3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "stevemolitor",
+        "repo": "claude-code.el",
+        "type": "github"
+      }
+    },
     "curd": {
       "inputs": {
         "nixpkgs": [
@@ -649,6 +665,7 @@
       "inputs": {
         "agenix": "agenix",
         "au-themes": "au-themes",
+        "claude-code-el": "claude-code-el",
         "curd": "curd",
         "disko": "disko",
         "firefox-addons": "firefox-addons",
