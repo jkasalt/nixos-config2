@@ -29,17 +29,6 @@
             hash = "sha256-y035sT5pn5cIuyHb047mOzMdok6lIS/J3DTrt/yo1MI=";
           };
         })
-        (epkgs.melpaBuild {
-          pname = "org-clock-reminder";
-          version = "0.1";
-          packageRequires = [];
-          src = pkgs.fetchFromGitHub {
-            owner = "inickey";
-            repo = "org-clock-reminder";
-            rev = "d3bf97113fd519aa08198e2283ba9c236a6df168";
-            hash = "sha256-OsK6WC7JL2eY0ZOMv1gjn602zBRhhbpjMioThY3V0Qg=";
-          };
-        })
       ];
     };
     services.emacs = {

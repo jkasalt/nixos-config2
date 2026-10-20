@@ -58,9 +58,7 @@
     (interactive (list (org-read-date t t)))
     (cl-letf (((symbol-function 'current-time) (lambda () time)))
       (org-todo 'done))
-    )
-  (require 'org-clock-reminder)
-  (org-clock-reminder-mode))
+    ))
 
 ;; Removing orgmode binding to let skk have precedence
 (map! :after evil-org

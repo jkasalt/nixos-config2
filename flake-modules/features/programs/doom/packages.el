@@ -18,9 +18,6 @@
 (package! south-theme
   :recipe (:host "github" :repo "SophieBosio/south")
   :pin "5c1bb971b97ad0ba6e56570db6479fadfd62e611")
-(package! org-clock-reminder
-  :recipe (:host "github" :repo "inickey/org-clock-reminder")
-  :pin "d3bf97113fd519aa08198e2283ba9c236a6df168")
 (package! mozc)
 (package! org-pomodoro)
 (package! majutsu)
