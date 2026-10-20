@@ -46,7 +46,6 @@
       # for common lisp
       sbcl
       sbclPackages.qlot-cli
-      hledger
     ];
   };
 }
