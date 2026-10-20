@@ -47,6 +47,7 @@ in {
             terminal
             ocaml
             geforce-now
+            odin
             ;
         }
         ++ [

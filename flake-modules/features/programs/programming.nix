@@ -1,5 +1,7 @@
 {
-  flake.modules.homeManager.ocaml = {pkgs, ...}: {
+  flake.modules.homeManager = {
+
+  ocaml = {pkgs, ...}: {
     programs.opam = {
       enable = true;
       enableZshIntegration = true;
@@ -9,4 +11,9 @@
       gnumake
     ];
   };
+
+  odin = {pkgs, ...}: {
+    home.packages = with pkgs; [clang odin];
+  };
+};
 }
