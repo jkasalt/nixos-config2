@@ -161,3 +161,11 @@
 
 (use-package! rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
+
+;; Common Lisp: start SLY through qlot so the project-local Quicklisp is loaded
+;; (needed by slynk-quicklisp). Pick plain sbcl with `M-- M-x sly'.
+(after! sly
+  (setq sly-lisp-implementations
+        '((qlot ("qlot" "exec" "sbcl"))
+          (sbcl ("sbcl")))
+        sly-default-lisp 'qlot))
