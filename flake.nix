@@ -88,6 +88,8 @@
       url = "github:marienz/nix-doom-emacs-unstraightened";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    flatpaks.url = "github:in-a-dil-emma/declarative-flatpak/latest";
   };
 
   outputs = inputs @ {

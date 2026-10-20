@@ -46,6 +46,7 @@ in {
             beancount
             terminal
             ocaml
+            geforce-now
             ;
         }
         ++ [
