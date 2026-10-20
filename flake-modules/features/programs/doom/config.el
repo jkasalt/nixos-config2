@@ -167,6 +167,14 @@
   (claude-code-mode)
   (map! :leader :desc "Claude Code" "o c" claude-code-command-map))
 
+;; Exposes Emacs to Claude Code via its IDE protocol (selection, diagnostics,
+;; diff views). claude-code.el sessions start a Monet server automatically.
+(use-package! monet
+  :after claude-code
+  :config
+  (monet-mode 1)
+  (add-hook 'claude-code-process-environment-functions #'monet-start-server-function))
+
 ;; Common Lisp: start SLY through qlot so the project-local Quicklisp is loaded
 ;; (needed by slynk-quicklisp). Pick plain sbcl with `M-- M-x sly'.
 (after! sly

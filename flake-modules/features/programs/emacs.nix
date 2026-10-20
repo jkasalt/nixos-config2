@@ -49,6 +49,14 @@
           ];
           src = inputs.claude-code-el;
         };
+        monet = esuper.melpaBuild {
+          pname = "monet";
+          version = "0.0.3";
+          packageRequires = with eself; [
+            websocket
+          ];
+          src = inputs.monet;
+        };
       };
     };
     services.emacs = {

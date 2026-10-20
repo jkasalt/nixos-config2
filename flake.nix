@@ -94,6 +94,11 @@
       flake = false;
     };
 
+    monet = {
+      url = "github:stevemolitor/monet";
+      flake = false;
+    };
+
     au-themes = {
       url = "github:szymonwilczek/au-themes";
       flake = false;
